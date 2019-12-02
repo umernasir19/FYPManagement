@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Advisor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdvisorsName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Advisor_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Advisor_Email" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Advisor_number" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Advisor_Uni_ID" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Advisor_Requested_Date" Type="DateTime" Precision="3" />
+    <Property Name="Advisor_Accepted_Date" Type="DateTime" Precision="3" />
+    <Property Name="IsBlock" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Advisors_Slot" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Announcement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Announcement1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Document_By_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Document_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student_Advisor_Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_Id" Type="Int32" />
+    <Property Name="Advisor_Id" Type="Int32" />
+    <Property Name="Group_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student_Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Document_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Student_Id" Type="Int32" />
+    <Property Name="Group_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student_Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Group_Id" Type="Int32" />
+    <Property Name="Student_1_ID" Type="Int32" />
+    <Property Name="Student_2_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_Name" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Student_Registration_No" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Student_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Student_Phone" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsPending" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="User_IN_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Id" Type="Int32" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Is_Block" Type="Boolean" />
+    <Property Name="Is_Pending" Type="Boolean" />
+    <Property Name="Created_By" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Advisors" EntityType="Self.Advisor" />
+    <EntitySet Name="Announcements" EntityType="Self.Announcement" />
+    <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" />
+    <EntitySet Name="groups" EntityType="Self.group" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" />
+    <EntitySet Name="Student_Document" EntityType="Self.Student_Document" />
+    <EntitySet Name="Student_Group" EntityType="Self.Student_Group" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

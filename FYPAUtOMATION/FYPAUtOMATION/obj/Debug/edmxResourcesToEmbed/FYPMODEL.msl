@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FYPModelStoreContainer" CdmEntityContainer="FYPEntities">
+    <EntitySetMapping Name="Advisors">
+      <EntityTypeMapping TypeName="FYPModel.Advisor">
+        <MappingFragment StoreEntitySet="Advisors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdvisorsName" ColumnName="AdvisorsName" />
+          <ScalarProperty Name="Advisor_Description" ColumnName="Advisor_Description" />
+          <ScalarProperty Name="Advisor_Email" ColumnName="Advisor_Email" />
+          <ScalarProperty Name="Advisor_number" ColumnName="Advisor_number" />
+          <ScalarProperty Name="Advisor_Uni_ID" ColumnName="Advisor_Uni_ID" />
+          <ScalarProperty Name="Advisor_Requested_Date" ColumnName="Advisor_Requested_Date" />
+          <ScalarProperty Name="Advisor_Accepted_Date" ColumnName="Advisor_Accepted_Date" />
+          <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Advisors_Slot" ColumnName="Advisors_Slot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Announcements">
+      <EntityTypeMapping TypeName="FYPModel.Announcement">
+        <MappingFragment StoreEntitySet="Announcements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Document_By_Admin">
+      <EntityTypeMapping TypeName="FYPModel.Document_By_Admin">
+        <MappingFragment StoreEntitySet="Document_By_Admin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="FYPModel.group">
+        <MappingFragment StoreEntitySet="groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="FYPModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Advisor_Request">
+      <EntityTypeMapping TypeName="FYPModel.Student_Advisor_Request">
+        <MappingFragment StoreEntitySet="Student_Advisor_Request">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="Advisor_Id" ColumnName="Advisor_Id" />
+          <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Document">
+      <EntityTypeMapping TypeName="FYPModel.Student_Document">
+        <MappingFragment StoreEntitySet="Student_Document">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Group">
+      <EntityTypeMapping TypeName="FYPModel.Student_Group">
+        <MappingFragment StoreEntitySet="Student_Group">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+          <ScalarProperty Name="Student_1_ID" ColumnName="Student_1_ID" />
+          <ScalarProperty Name="Student_2_ID" ColumnName="Student_2_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="FYPModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="Student_Registration_No" ColumnName="Student_Registration_No" />
+          <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
+          <ScalarProperty Name="Student_Phone" ColumnName="Student_Phone" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsPending" ColumnName="IsPending" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_IN_Roles">
+      <EntityTypeMapping TypeName="FYPModel.User_IN_Roles">
+        <MappingFragment StoreEntitySet="User_IN_Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FYPModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Is_Block" ColumnName="Is_Block" />
+          <ScalarProperty Name="Is_Pending" ColumnName="Is_Pending" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

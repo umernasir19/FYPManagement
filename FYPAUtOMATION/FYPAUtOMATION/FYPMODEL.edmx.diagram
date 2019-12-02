@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bd3e12d997f49d9a8f2c84d385ca972" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="FYPModel.Advisor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Announcement" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Document_By_Admin" Width="1.5" PointX="8.875" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.group" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Role" Width="1.5" PointX="11.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Student_Advisor_Request" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Student_Document" Width="1.5" PointX="0.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Student_Group" Width="1.5" PointX="3.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.Student" Width="1.5" PointX="13.875" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.User_IN_Roles" Width="1.5" PointX="5.375" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.User" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

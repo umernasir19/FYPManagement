@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advisors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdvisorsName" Type="nvarchar" MaxLength="80" />
+          <Property Name="Advisor_Description" Type="text" />
+          <Property Name="Advisor_Email" Type="nvarchar" MaxLength="120" />
+          <Property Name="Advisor_number" Type="nvarchar" MaxLength="120" />
+          <Property Name="Advisor_Uni_ID" Type="nvarchar" MaxLength="120" />
+          <Property Name="Advisor_Requested_Date" Type="datetime" />
+          <Property Name="Advisor_Accepted_Date" Type="datetime" />
+          <Property Name="IsBlock" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Advisors_Slot" Type="int" />
+        </EntityType>
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Announcement" Type="text" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Document_By_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Document_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocumentPath" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Date_Created" Type="datetime" />
+          <Property Name="Created_By" Type="int" />
+        </EntityType>
+        <EntityType Name="Student_Advisor_Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_Id" Type="int" />
+          <Property Name="Advisor_Id" Type="int" />
+          <Property Name="Group_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Student_Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Document_Path" Type="nvarchar" MaxLength="200" />
+          <Property Name="Student_Id" Type="int" />
+          <Property Name="Group_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Student_Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Group_Id" Type="int" />
+          <Property Name="Student_1_ID" Type="int" />
+          <Property Name="Student_2_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_Name" Type="nvarchar" MaxLength="120" />
+          <Property Name="Student_Registration_No" Type="nvarchar" MaxLength="100" />
+          <Property Name="Student_Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Student_Phone" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsPending" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User_IN_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Id" Type="int" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Date_Created" Type="datetime" />
+          <Property Name="Created_By" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Password" Type="nvarchar" MaxLength="70" />
+          <Property Name="Date_Created" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Is_Block" Type="bit" />
+          <Property Name="Is_Pending" Type="bit" />
+          <Property Name="Created_By" Type="int" />
+        </EntityType>
+        <EntityContainer Name="FYPModelStoreContainer">
+          <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Document" EntityType="Self.Student_Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advisor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdvisorsName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Advisor_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Advisor_Email" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Advisor_number" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Advisor_Uni_ID" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Advisor_Requested_Date" Type="DateTime" Precision="3" />
+          <Property Name="Advisor_Accepted_Date" Type="DateTime" Precision="3" />
+          <Property Name="IsBlock" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Advisors_Slot" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Announcement1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Document_By_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Document_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
+          <Property Name="Created_By" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student_Advisor_Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_Id" Type="Int32" />
+          <Property Name="Advisor_Id" Type="Int32" />
+          <Property Name="Group_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student_Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Document_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Id" Type="Int32" />
+          <Property Name="Group_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student_Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Group_Id" Type="Int32" />
+          <Property Name="Student_1_ID" Type="Int32" />
+          <Property Name="Student_2_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_Name" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Registration_No" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Phone" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsPending" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User_IN_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Id" Type="Int32" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
+          <Property Name="Created_By" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Is_Block" Type="Boolean" />
+          <Property Name="Is_Pending" Type="Boolean" />
+          <Property Name="Created_By" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advisors" EntityType="Self.Advisor" />
+          <EntitySet Name="Announcements" EntityType="Self.Announcement" />
+          <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" />
+          <EntitySet Name="groups" EntityType="Self.group" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" />
+          <EntitySet Name="Student_Document" EntityType="Self.Student_Document" />
+          <EntitySet Name="Student_Group" EntityType="Self.Student_Group" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FYPModelStoreContainer" CdmEntityContainer="FYPEntities">
+          <EntitySetMapping Name="Advisors">
+            <EntityTypeMapping TypeName="FYPModel.Advisor">
+              <MappingFragment StoreEntitySet="Advisors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdvisorsName" ColumnName="AdvisorsName" />
+                <ScalarProperty Name="Advisor_Description" ColumnName="Advisor_Description" />
+                <ScalarProperty Name="Advisor_Email" ColumnName="Advisor_Email" />
+                <ScalarProperty Name="Advisor_number" ColumnName="Advisor_number" />
+                <ScalarProperty Name="Advisor_Uni_ID" ColumnName="Advisor_Uni_ID" />
+                <ScalarProperty Name="Advisor_Requested_Date" ColumnName="Advisor_Requested_Date" />
+                <ScalarProperty Name="Advisor_Accepted_Date" ColumnName="Advisor_Accepted_Date" />
+                <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Advisors_Slot" ColumnName="Advisors_Slot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="FYPModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document_By_Admin">
+            <EntityTypeMapping TypeName="FYPModel.Document_By_Admin">
+              <MappingFragment StoreEntitySet="Document_By_Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="FYPModel.group">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="FYPModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Advisor_Request">
+            <EntityTypeMapping TypeName="FYPModel.Student_Advisor_Request">
+              <MappingFragment StoreEntitySet="Student_Advisor_Request">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+                <ScalarProperty Name="Advisor_Id" ColumnName="Advisor_Id" />
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Document">
+            <EntityTypeMapping TypeName="FYPModel.Student_Document">
+              <MappingFragment StoreEntitySet="Student_Document">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Group">
+            <EntityTypeMapping TypeName="FYPModel.Student_Group">
+              <MappingFragment StoreEntitySet="Student_Group">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+                <ScalarProperty Name="Student_1_ID" ColumnName="Student_1_ID" />
+                <ScalarProperty Name="Student_2_ID" ColumnName="Student_2_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="FYPModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Student_Registration_No" ColumnName="Student_Registration_No" />
+                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
+                <ScalarProperty Name="Student_Phone" ColumnName="Student_Phone" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsPending" ColumnName="IsPending" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_IN_Roles">
+            <EntityTypeMapping TypeName="FYPModel.User_IN_Roles">
+              <MappingFragment StoreEntitySet="User_IN_Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FYPModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Is_Block" ColumnName="Is_Block" />
+                <ScalarProperty Name="Is_Pending" ColumnName="Is_Pending" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

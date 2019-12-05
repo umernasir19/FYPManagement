@@ -23,5 +23,9 @@ namespace FYPAUtOMATION
         public Nullable<bool> Is_Block { get; set; }
         public Nullable<bool> Is_Pending { get; set; }
         public Nullable<int> Created_By { get; set; }
+        public string Email { get; set; }
+        public Nullable<bool> Is_Student { get; set; }
+        public Nullable<bool> Is_Advisor { get; set; }
+        public Nullable<int> Std_Adv_Id { get; set; }
     }
 }

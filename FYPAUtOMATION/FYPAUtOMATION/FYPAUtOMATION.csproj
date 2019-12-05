@@ -141,6 +141,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Dist\contactform\contactform.js" />
+    <Content Include="Dist\css\style.css" />
+    <Content Include="Dist\js\main.js" />
+    <Content Include="Dist\lib\animate\animate.css" />
+    <Content Include="Dist\lib\animate\animate.min.css" />
+    <Content Include="Dist\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Dist\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Dist\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Dist\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Dist\lib\counterup\counterup.min.js" />
+    <Content Include="Dist\lib\datatables\jquery.dataTables.js" />
+    <Content Include="Dist\lib\datatables\jquery.dataTables.min.js" />
+    <Content Include="Dist\lib\easing\easing.js" />
+    <Content Include="Dist\lib\easing\easing.min.js" />
+    <Content Include="Dist\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Dist\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Dist\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Dist\lib\ionicons\css\ionicons.css" />
+    <Content Include="Dist\lib\ionicons\css\ionicons.min.css" />
+    <Content Include="Dist\lib\ionicons\fonts\ionicons.svg" />
+    <Content Include="Dist\lib\isotope\isotope.pkgd.js" />
+    <Content Include="Dist\lib\isotope\isotope.pkgd.min.js" />
+    <Content Include="Dist\lib\jquery\jquery-migrate.min.js" />
+    <Content Include="Dist\lib\jquery\jquery.min.js" />
+    <Content Include="Dist\lib\lightbox\css\lightbox.css" />
+    <Content Include="Dist\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="Dist\lib\lightbox\images\close.png" />
+    <Content Include="Dist\lib\lightbox\images\loading.gif" />
+    <Content Include="Dist\lib\lightbox\images\next.png" />
+    <Content Include="Dist\lib\lightbox\images\prev.png" />
+    <Content Include="Dist\lib\lightbox\js\lightbox.js" />
+    <Content Include="Dist\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="Dist\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Dist\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Dist\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Dist\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Dist\lib\superfish\hoverIntent.js" />
+    <Content Include="Dist\lib\superfish\superfish.js" />
+    <Content Include="Dist\lib\superfish\superfish.min.js" />
+    <Content Include="Dist\lib\touchSwipe\jquery.touchSwipe.js" />
+    <Content Include="Dist\lib\touchSwipe\jquery.touchSwipe.min.js" />
+    <Content Include="Dist\lib\waypoints\waypoints.min.js" />
+    <Content Include="Dist\lib\wow\wow.js" />
+    <Content Include="Dist\lib\wow\wow.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FYPMODEL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FYPMODEL.Context.cs</LastGenOutput>
@@ -154,6 +208,23 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Dist\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Dist\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Dist\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Dist\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Dist\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Dist\lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="Dist\lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Dist\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="Dist\lib\lightbox\links.php" />
+    <Content Include="Dist\lib\owlcarousel\LICENSE" />
+    <Content Include="Dist\lib\waypoints\links.php" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +237,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Api\AccountApiController.cs" />
+    <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Document_By_Admin.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -191,8 +264,12 @@
     <Compile Include="group.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\User_Registration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_SignUp_Requests_Result.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">
@@ -227,6 +304,17 @@
     <Content Include="FYPMODEL.edmx.diagram">
       <DependentUpon>FYPMODEL.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
+    <Content Include="Views\DashBoard\DashBoard.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Admin\AcceptSignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -236,8 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Account\" />
+    <Folder Include="Dist\img\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

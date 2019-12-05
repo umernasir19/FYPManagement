@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Advisors">
           <Key>
             <PropertyRef Name="Id" />
@@ -123,7 +123,12 @@
           <Property Name="Is_Block" Type="bit" />
           <Property Name="Is_Pending" Type="bit" />
           <Property Name="Created_By" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Is_Student" Type="bit" />
+          <Property Name="Is_Advisor" Type="bit" />
+          <Property Name="Std_Adv_Id" Type="int" />
         </EntityType>
+        <Function Name="sp_SignUp_Requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="FYPModelStoreContainer">
           <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
@@ -137,8 +142,7 @@
           <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -260,6 +264,10 @@
           <Property Name="Is_Block" Type="Boolean" />
           <Property Name="Is_Pending" Type="Boolean" />
           <Property Name="Created_By" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Student" Type="Boolean" />
+          <Property Name="Is_Advisor" Type="Boolean" />
+          <Property Name="Std_Adv_Id" Type="Int32" />
         </EntityType>
         <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Advisors" EntityType="Self.Advisor" />
@@ -273,7 +281,18 @@
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <FunctionImport Name="sp_SignUp_Requests" ReturnType="Collection(FYPModel.sp_SignUp_Requests_Result)" />
         </EntityContainer>
+        <ComplexType Name="sp_SignUp_Requests_Result">
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="Is_Advisor" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Student" Nullable="true" />
+          <Property Type="String" Name="Student_Registration_No" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="7" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -398,6 +417,10 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FYPModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Std_Adv_Id" ColumnName="Std_Adv_Id" />
+                <ScalarProperty Name="Is_Advisor" ColumnName="Is_Advisor" />
+                <ScalarProperty Name="Is_Student" ColumnName="Is_Student" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="User_Name" ColumnName="User_Name" />
                 <ScalarProperty Name="User_Password" ColumnName="User_Password" />
@@ -410,6 +433,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_SignUp_Requests" FunctionName="FYPModel.Store.sp_SignUp_Requests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.sp_SignUp_Requests_Result">
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Is_Advisor" ColumnName="Is_Advisor" />
+                <ScalarProperty Name="Is_Student" ColumnName="Is_Student" />
+                <ScalarProperty Name="Student_Registration_No" ColumnName="Student_Registration_No" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

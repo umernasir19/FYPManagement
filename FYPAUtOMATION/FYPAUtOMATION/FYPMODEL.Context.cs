@@ -12,6 +12,9 @@ namespace FYPAUtOMATION
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class FYPEntities : DbContext
     {
@@ -36,5 +39,10 @@ namespace FYPAUtOMATION
         public DbSet<Student> Students { get; set; }
         public DbSet<User_IN_Roles> User_IN_Roles { get; set; }
         public DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<sp_SignUp_Requests_Result> sp_SignUp_Requests()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SignUp_Requests_Result>("sp_SignUp_Requests");
+        }
     }
 }

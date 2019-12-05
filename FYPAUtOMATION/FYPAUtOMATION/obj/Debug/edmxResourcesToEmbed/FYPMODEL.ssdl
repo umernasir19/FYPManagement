@@ -118,7 +118,12 @@
     <Property Name="Is_Block" Type="bit" />
     <Property Name="Is_Pending" Type="bit" />
     <Property Name="Created_By" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Is_Student" Type="bit" />
+    <Property Name="Is_Advisor" Type="bit" />
+    <Property Name="Std_Adv_Id" Type="int" />
   </EntityType>
+  <Function Name="sp_SignUp_Requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="FYPModelStoreContainer">
     <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />

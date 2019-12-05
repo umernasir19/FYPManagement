@@ -119,6 +119,10 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="FYPModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Std_Adv_Id" ColumnName="Std_Adv_Id" />
+          <ScalarProperty Name="Is_Advisor" ColumnName="Is_Advisor" />
+          <ScalarProperty Name="Is_Student" ColumnName="Is_Student" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="User_Name" ColumnName="User_Name" />
           <ScalarProperty Name="User_Password" ColumnName="User_Password" />
@@ -131,5 +135,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_SignUp_Requests" FunctionName="FYPModel.Store.sp_SignUp_Requests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FYPModel.sp_SignUp_Requests_Result">
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Is_Advisor" ColumnName="Is_Advisor" />
+          <ScalarProperty Name="Is_Student" ColumnName="Is_Student" />
+          <ScalarProperty Name="Student_Registration_No" ColumnName="Student_Registration_No" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

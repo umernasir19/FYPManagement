@@ -107,8 +107,9 @@
         function AcceptRequest(ID) {
             
             var url = "/Admin/AcceptRequests?Id=" + ID;
-            window.location.reload;
-            //alert("Accepted");
+            window.location.href = url;
+            //window.location.reload;
+            alert("Accepted");
 
             //$("#modelbody").load(url, function (e) {
             //    var id = $('#Customer_Id').val();

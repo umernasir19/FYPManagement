@@ -136,6 +136,9 @@
     <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <FunctionImport Name="sp_SignUp_Requests" ReturnType="Collection(FYPModel.sp_SignUp_Requests_Result)" />
+    <FunctionImport Name="sp_Accept_SignUp">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_SignUp_Requests_Result">
     <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />

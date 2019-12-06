@@ -44,5 +44,14 @@ namespace FYPAUtOMATION
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_SignUp_Requests_Result>("sp_SignUp_Requests");
         }
+    
+        public virtual int sp_Accept_SignUp(Nullable<int> userid)
+        {
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Accept_SignUp", useridParameter);
+        }
     }
 }

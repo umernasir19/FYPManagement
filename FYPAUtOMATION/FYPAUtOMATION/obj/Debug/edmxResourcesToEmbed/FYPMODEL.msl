@@ -149,5 +149,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Accept_SignUp" FunctionName="FYPModel.Store.sp_Accept_SignUp" />
   </EntityContainerMapping>
 </Mapping>

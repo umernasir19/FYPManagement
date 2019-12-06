@@ -24,30 +24,44 @@ namespace FYPAUtOMATION.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(p => p.Email == users.Email && p.User_Password == users.User_Password && p.Is_Active == true).FirstOrDefault();
-                if (user != null)
+                try
                 {
-                    var userrole = db.User_IN_Roles.Where(p => p.User_Id == user.Id).FirstOrDefault();
-                    if (userrole != null)
+
+                    var user = db.Users.Where(p => p.Email == users.Email && p.User_Password == users.User_Password && p.Is_Active == true).FirstOrDefault();
+                    if (user != null)
                     {
-                        var rolename = db.Roles.Where(p => p.Id == userrole.Role_Id).FirstOrDefault();
+                        var userrole = db.User_IN_Roles.Where(p => p.User_Id == user.Id).FirstOrDefault();
+                        if (userrole != null)
+                        {
+                            var rolename = db.Roles.Where(p => p.Id == userrole.Role_Id).FirstOrDefault();
 
-                        Session["userid"] = user.Id;
-                        Session["UserName"] = user.User_Name;
-                        Session["RoleID"] = userrole.Role_Id;
-                        Session["RoleName"] = rolename.Role_Name;
+                            Session["userid"] = user.Id;
+                            Session["UserName"] = user.User_Name;
+                            Session["RoleID"] = userrole.Role_Id;
+                            Session["RoleName"] = rolename.Role_Name;
+                            return Json(new { url = "/Dashboard/Dashboard", msg = "Logged In", success = true }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            Session["userid"] = user.Id;
+                            Session["UserName"] = user.User_Name;
+                            Session["RoleID"] = 0;
+                            Session["RoleName"] = "No Roles";
+                            //return RedirectToAction("Dashboard", "Dashboard");
+                            return Json(new { url = "/Dashboard/Dashboard", msg = "Logged In", success = true }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    //return RedirectToAction("Dashboard", "Dashboard");
-                   return Json(new { url = "/Dashboard/Dashboard", msg="Logged In",success=true }, JsonRequestBehavior.AllowGet);
 
+                    else
+                    {
+                        return Json(new { url = "/Account/Login", msg = "No User Found Or Account In Pending", success = false }, JsonRequestBehavior.AllowGet);
+
+                    }
                 }
-
-                else
+                catch(Exception ex)
                 {
-                    return Json(new { url = "/Account/Login", msg = "No User Found Or Account In Pending", success = false }, JsonRequestBehavior.AllowGet);
-
+                    return View(users);
                 }
-
 
             }
             else
@@ -147,6 +161,14 @@ namespace FYPAUtOMATION.Controllers
             }
 
 
+        }
+
+        public ActionResult Logout()
+        {
+            Session.RemoveAll();
+            Session.Clear();
+            Session.Abandon();
+            return View("Login");
         }
     }
 }

@@ -31,16 +31,17 @@ namespace FYPAUtOMATION.Controllers
         }
 
 
-        public JsonResult AcceptRequests(int id)
+        public ActionResult AcceptRequests(int id)
         {
             var user = new User { Id=id };
-            db.Users.Attach(user);
-            user.Is_Active = true;
-            user.Is_Pending = false;
+            db.sp_Accept_SignUp(id);
+            //db.Users.Attach(user);
+            //user.Is_Active = true;
+            //user.Is_Pending = false;
 
-            db.SaveChanges();
+            //db.SaveChanges();
 
-            return Json(new {success=true,msg="Accepted" }, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("AcceptSignUp","Admin");
         }
 
     }

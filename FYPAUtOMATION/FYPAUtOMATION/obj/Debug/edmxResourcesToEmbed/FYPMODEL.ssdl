@@ -123,6 +123,9 @@
     <Property Name="Is_Advisor" Type="bit" />
     <Property Name="Std_Adv_Id" Type="int" />
   </EntityType>
+  <Function Name="sp_Accept_SignUp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_SignUp_Requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="FYPModelStoreContainer">
     <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />

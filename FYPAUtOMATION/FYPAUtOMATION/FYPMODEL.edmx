@@ -29,6 +29,7 @@
           <Property Name="Announcement" Type="text" />
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Document_By_Admin">
           <Key>
@@ -173,6 +174,7 @@
           <Property Name="Announcement1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Document_By_Admin">
           <Key>
@@ -286,7 +288,7 @@
           <EntitySet Name="Users" EntityType="Self.User" />
           <FunctionImport Name="sp_SignUp_Requests" ReturnType="Collection(FYPModel.sp_SignUp_Requests_Result)" />
           <FunctionImport Name="sp_Accept_SignUp">
-            <Parameter Name="userid" Mode="In" Type="Int32" />
+          <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SignUp_Requests_Result">
@@ -325,6 +327,7 @@
           <EntitySetMapping Name="Announcements">
             <EntityTypeMapping TypeName="FYPModel.Announcement">
               <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />

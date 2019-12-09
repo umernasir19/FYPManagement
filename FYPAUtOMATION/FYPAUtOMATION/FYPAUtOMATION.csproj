@@ -238,6 +238,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\Api\AccountApiController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Document_By_Admin.cs">
@@ -315,6 +316,8 @@
     <Content Include="Views\DashBoard\DashBoard.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Admin\AcceptSignUp.cshtml" />
+    <Content Include="Views\Announcement\AddAnnouncement.cshtml" />
+    <Content Include="Views\Announcement\ViewAnnouncement.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,6 +328,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Dist\img\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

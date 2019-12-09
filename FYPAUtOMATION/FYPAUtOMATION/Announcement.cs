@@ -18,5 +18,6 @@ namespace FYPAUtOMATION
         public string Announcement1 { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -1,0 +1,111 @@
+﻿@model FYPAUtOMATION.Announcement
+@{
+    ViewBag.Title = "Add Announcement";
+}
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Add Announcement</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add Announcement</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Announcement</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        
+                        <form id="annoucnementform" method="post">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @placeholder = "Title", @class = "form-control", @id = "txtboxempname" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    @Html.TextAreaFor(model => model.Announcement1, new { @placeholder = "Announcement", @class = "form-control", @id = "txtboxclientaddress", rows = "3" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Announcement1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                            </form>
+
+                        <div class="row">
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                 <input type="button" id="btnsubmit" value="Add Annoucement" class="btn btn-primary" /> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('#btnsubmit').click(function (e) {
+                var form = $("#annoucnementform");
+                $.ajax({
+                    type: 'Post',
+                    data: $(form).serialize(),
+                    url: "/Announcement/AddAnnouncement",
+                    success: function (data) {
+                        if (data.success) {
+                            alert(data.msg);
+                            location.reload();
+                        }
+                    }
+                });
+
+            });
+
+
+
+           
+
+            
+
+
+        });
+
+        
+
+</script>

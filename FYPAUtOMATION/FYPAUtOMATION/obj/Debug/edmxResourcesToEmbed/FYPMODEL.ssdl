@@ -24,6 +24,7 @@
     <Property Name="Announcement" Type="text" />
     <Property Name="DateCreated" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="Document_By_Admin">
     <Key>

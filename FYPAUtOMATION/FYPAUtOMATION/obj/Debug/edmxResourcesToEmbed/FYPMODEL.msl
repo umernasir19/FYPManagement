@@ -21,6 +21,7 @@
     <EntitySetMapping Name="Announcements">
       <EntityTypeMapping TypeName="FYPModel.Announcement">
         <MappingFragment StoreEntitySet="Announcements">
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />

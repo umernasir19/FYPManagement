@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Students List</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Students List</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Students List</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <p>@ViewBag.Message</p>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+    }
+    else
+    {
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Students List</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Students List</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Students List</h3>
+                            </div>
+                            <div class="card-header">
+                               <input type="button" id="makeindivdual" class="btn btn-primary" value="Make Individual Group" />
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+    }
+}
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Student/GetStudentList",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Student_Name' },
+                        { data: 'Student_Email' },//or { data: 'MONTH', title: 'Month' }`
+                        //{ data: 'Advisor_Uni_ID' },
+
+                        {
+                            "data": "ID",
+                            "render": function (ID, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-info" onclick="SendRequest(' + ID + ')"><i class="fa fa-eye">Send Request</i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+                    ]
+                });
+
+            }
+
+
+        });
+
+        function SendRequest(ID) {
+
+            var url = "/Student/SendRequest?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+        $('#makeindivdual').click(function () {
+            makeindivdual();
+        })
+        function makeindivdual() {
+
+            var url = "/Student/MakeIndividualGroup";
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+
+</script>
+
+

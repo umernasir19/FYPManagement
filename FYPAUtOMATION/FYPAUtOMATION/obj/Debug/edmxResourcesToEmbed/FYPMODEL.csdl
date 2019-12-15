@@ -33,6 +33,8 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Document_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DocumentPath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="group">
     <Key>
@@ -62,6 +64,10 @@
     <Property Name="Student_Id" Type="Int32" />
     <Property Name="Advisor_Id" Type="Int32" />
     <Property Name="Group_Id" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Is_Accepted" Type="Boolean" />
+    <Property Name="Date_Accepted" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Student_Document">
     <Key>
@@ -140,6 +146,9 @@
     <FunctionImport Name="sp_Accept_SignUp">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="tblFiles" EntityType="FYPModel.tblFile" />
+    <EntitySet Name="Student_Request" EntityType="FYPModel.Student_Request" />
+    <EntitySet Name="Projects" EntityType="FYPModel.Project" />
   </EntityContainer>
   <ComplexType Name="sp_SignUp_Requests_Result">
     <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -151,4 +160,38 @@
     <Property Type="String" Name="Designation" Nullable="false" MaxLength="7" />
     <Property Type="Int32" Name="Id" Nullable="false" />
   </ComplexType>
+  <EntityType Name="tblFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Document_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Document_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group_ID" Type="Int32" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Is_Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Student_Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Request_From_Id" Type="Int32" />
+    <Property Name="Request_To_Id" Type="Int32" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+    <Property Name="Is_Accepted" Type="Boolean" />
+    <Property Name="Is_Rejected" Type="Boolean" />
+    <Property Name="Date_Accepeted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Advisor_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Created" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
 </Schema>

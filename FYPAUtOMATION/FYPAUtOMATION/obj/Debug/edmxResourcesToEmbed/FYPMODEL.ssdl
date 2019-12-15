@@ -33,6 +33,8 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Document_Name" Type="nvarchar" MaxLength="50" />
     <Property Name="DocumentPath" Type="nvarchar" MaxLength="200" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
   </EntityType>
   <EntityType Name="groups">
     <Key>
@@ -42,6 +44,16 @@
     <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
     <Property Name="Is_Active" Type="bit" />
     <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Advisor_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date_Created" Type="date" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -62,6 +74,10 @@
     <Property Name="Student_Id" Type="int" />
     <Property Name="Advisor_Id" Type="int" />
     <Property Name="Group_Id" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Accepted" Type="bit" />
+    <Property Name="Date_Accepted" Type="datetime" />
   </EntityType>
   <EntityType Name="Student_Document">
     <Key>
@@ -81,6 +97,19 @@
     <Property Name="Student_1_ID" Type="int" />
     <Property Name="Student_2_ID" Type="int" />
   </EntityType>
+  <EntityType Name="Student_Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Request_From_Id" Type="int" />
+    <Property Name="Request_To_Id" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Accepted" Type="bit" />
+    <Property Name="Is_Rejected" Type="bit" />
+    <Property Name="Date_Accepeted" Type="datetime" />
+  </EntityType>
   <EntityType Name="Students">
     <Key>
       <PropertyRef Name="ID" />
@@ -93,6 +122,17 @@
     <Property Name="IsActive" Type="bit" />
     <Property Name="IsPending" Type="bit" />
     <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Document_Path" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_ID" Type="int" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Active" Type="bit" />
   </EntityType>
   <EntityType Name="User_IN_Roles">
     <Key>
@@ -133,11 +173,14 @@
     <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Document" EntityType="Self.Student_Document" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Request" EntityType="Self.Student_Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFiles" EntityType="Self.tblFiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

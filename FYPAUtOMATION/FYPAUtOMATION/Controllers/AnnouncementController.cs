@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,5 +44,28 @@ namespace FYPAUtOMATION.Controllers
                 return Json(new {success=false,msg="Failed"+ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult ViewDocuments()
+        {
+            return View();
+        }
+
+
+        public JsonResult GetDocuments()
+        {
+            var announcment = db.Document_By_Admin.Where(p=>p.Is_Active==true).ToList();
+            return Json(new { data = announcment }, JsonRequestBehavior.AllowGet);
+        }
+
+        public FileResult Download(int id)
+        {
+          string fpath=  db.Document_By_Admin.Where(p => p.ID == id).Select(x => x.DocumentPath).FirstOrDefault();
+            string fullName = Server.MapPath("~" + fpath);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(fullName);
+            string fileName = Path.GetFileName(fullName);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+        
     }
 }

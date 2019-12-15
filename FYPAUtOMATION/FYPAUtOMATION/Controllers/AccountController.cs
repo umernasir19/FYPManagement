@@ -39,6 +39,19 @@ namespace FYPAUtOMATION.Controllers
                             Session["UserName"] = user.User_Name;
                             Session["RoleID"] = userrole.Role_Id;
                             Session["RoleName"] = rolename.Role_Name;
+                            if (user.Is_Student == true)
+                            {
+                                Session["StudentId"] = user.Std_Adv_Id;
+                            }
+                            else if (user.Is_Advisor == true)
+                            {
+                                Session["AdvisorId"] = user.Std_Adv_Id;
+
+                            }
+                            else
+                            {
+                                
+                            }
                             return Json(new { url = "/Dashboard/Dashboard", msg = "Logged In", success = true }, JsonRequestBehavior.AllowGet);
                         }
                         else

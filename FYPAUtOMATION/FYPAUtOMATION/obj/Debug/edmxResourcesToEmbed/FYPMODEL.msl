@@ -32,6 +32,8 @@
     <EntitySetMapping Name="Document_By_Admin">
       <EntityTypeMapping TypeName="FYPModel.Document_By_Admin">
         <MappingFragment StoreEntitySet="Document_By_Admin">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
           <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
@@ -63,6 +65,10 @@
     <EntitySetMapping Name="Student_Advisor_Request">
       <EntityTypeMapping TypeName="FYPModel.Student_Advisor_Request">
         <MappingFragment StoreEntitySet="Student_Advisor_Request">
+          <ScalarProperty Name="Date_Accepted" ColumnName="Date_Accepted" />
+          <ScalarProperty Name="Is_Accepted" ColumnName="Is_Accepted" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
           <ScalarProperty Name="Advisor_Id" ColumnName="Advisor_Id" />
@@ -151,5 +157,42 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_Accept_SignUp" FunctionName="FYPModel.Store.sp_Accept_SignUp" />
+    <EntitySetMapping Name="tblFiles">
+      <EntityTypeMapping TypeName="FYPModel.tblFile">
+        <MappingFragment StoreEntitySet="tblFiles">
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+          <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
+          <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Request">
+      <EntityTypeMapping TypeName="FYPModel.Student_Request">
+        <MappingFragment StoreEntitySet="Student_Request">
+          <ScalarProperty Name="Date_Accepeted" ColumnName="Date_Accepeted" />
+          <ScalarProperty Name="Is_Rejected" ColumnName="Is_Rejected" />
+          <ScalarProperty Name="Is_Accepted" ColumnName="Is_Accepted" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Request_To_Id" ColumnName="Request_To_Id" />
+          <ScalarProperty Name="Request_From_Id" ColumnName="Request_From_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="FYPModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Advisor_Name" ColumnName="Advisor_Name" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

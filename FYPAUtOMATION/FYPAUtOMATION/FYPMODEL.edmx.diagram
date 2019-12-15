@@ -16,6 +16,9 @@
         <EntityTypeShape EntityType="FYPModel.Student" Width="1.5" PointX="13.875" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FYPModel.User_IN_Roles" Width="1.5" PointX="5.375" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FYPModel.User" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FYPModel.tblFile" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="FYPModel.Student_Request" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="FYPModel.Project" Width="1.5" PointX="5.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

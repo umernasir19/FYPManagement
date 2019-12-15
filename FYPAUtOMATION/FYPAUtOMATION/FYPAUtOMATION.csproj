@@ -238,9 +238,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdvisorController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\Api\AccountApiController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Document_By_Admin.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -265,7 +267,12 @@
     <Compile Include="group.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminDocument.cs" />
+    <Compile Include="Models\StudentGroupViewModel.cs" />
     <Compile Include="Models\User_Registration.cs" />
+    <Compile Include="Project.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
@@ -283,6 +290,12 @@
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Student_Group.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Request.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFile.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
@@ -318,6 +331,19 @@
     <Content Include="Views\Admin\AcceptSignUp.cshtml" />
     <Content Include="Views\Announcement\AddAnnouncement.cshtml" />
     <Content Include="Views\Announcement\ViewAnnouncement.cshtml" />
+    <Content Include="Views\Admin\UploadDocument.cshtml" />
+    <Content Include="Views\Admin\AdvisorsList.cshtml" />
+    <Content Include="Views\Admin\UpdateAdvisorDetails.cshtml" />
+    <Content Include="Views\Student\StudentList.cshtml" />
+    <Content Include="Views\Student\RequestList.cshtml" />
+    <Content Include="Views\Announcement\ViewDocuments.cshtml" />
+    <Content Include="Views\Admin\GroupsList.cshtml" />
+    <Content Include="Views\Admin\UpdateGroupDetails.cshtml" />
+    <Content Include="Views\Student\SendAdvisorRequest.cshtml" />
+    <Content Include="Views\Advisor\StudentRequests.cshtml" />
+    <Content Include="Views\Student\UploadDeliverables.cshtml" />
+    <Content Include="Views\Advisor\Deliverables.cshtml" />
+    <Content Include="Views\Advisor\GroupFiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -327,7 +353,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Deliverables\" />
     <Folder Include="Dist\img\" />
+    <Folder Include="Docs\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>

@@ -126,5 +126,46 @@ namespace FYPAUtOMATION.Controllers
             string fileName = Path.GetFileName(fullName);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
+
+
+
+        public ActionResult GroupsList()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult GetGroupsList()
+        {
+            int advid = Convert.ToInt32(Session["AdvisorId"].ToString());
+            try
+            {
+
+                var groups = (from grp in db.groups
+                                                join sgrp in db.Student_Group on grp.Id equals sgrp.Group_Id
+                                                join std1 in db.Students on sgrp.Student_1_ID equals std1.ID
+                                                join std2 in db.Students on sgrp.Student_2_ID equals std2.ID
+                                                join stdadvre in db.Student_Advisor_Request on grp.Id equals stdadvre.Group_Id
+                                                where stdadvre.Advisor_Id == advid
+                                                select new StudentGroupViewModel
+                                                {
+                                                    group_id = grp.Id,
+                                                    Group_Name = grp.GroupName,
+                                                    Student1_Name = std1.Student_Name,
+                                                    Student2_Name = std2.Student_Name
+
+                                                }).ToList();
+
+
+
+                //var groups = db.Student_Advisor_Request.Where(p=>p.Advisor_Id==advid && p.Is_Accepted==true).ToList();
+
+                return Json(new { success = true, msg = "Success", data = groups }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

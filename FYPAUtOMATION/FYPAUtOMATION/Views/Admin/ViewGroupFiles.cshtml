@@ -1,7 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "GroupsList";
+    ViewBag.Title = "ViewGroupFiles";
 }
+
 <link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -9,12 +10,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Groups List</h1>
+                    <h1>Groups Files</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Groups List</li>
+                        <li class="breadcrumb-item active">Groups Files</li>
                     </ol>
                 </div>
             </div>
@@ -26,14 +27,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Groups List</h3>
+                        <h3 class="card-title">Groups Files</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Group Name</th>
+                                    <th>File Name</th>
+                                    <th>Uploaded Date Time</th>
                                     <th>Action</th>
 
 
@@ -56,9 +58,10 @@
 <script src="~/Dist/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function () {
+            var groupid=@Html.Raw(ViewBag.GroupId);
 
             $.ajax({
-                url: "/Admin/GetGroupsList",
+                url: "/Admin/GetGroupsFiles?id="+groupid,
                 success: function (data) {
                     bindCustomersInDataTable(data);
                 }
@@ -74,12 +77,13 @@
 
                     columns: [
 
-                        { data: 'GroupName' },
+                        { data: 'Document_Name' },
+                        { data: 'Date_Created' },
                         {
                             "data": "Id",
                             "render": function (Id, type, full, meta) {
 
-                                return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+                                return '<a href="#" class="btn btn-info" onclick="Download(' + Id + ')"><i class="fa fa-eye">Download</i>'
 
                             },
                             "orderable": true,
@@ -96,9 +100,9 @@
 
         });
 
-        function UpdateGroupDescription(ID) {
+    function Download(ID) {
 
-            var url = "/Admin/UpdateGroupDetails?Id=" + ID;
+        var url = "/Admin/Download?Id=" + ID;
             window.location.href = url;
             //window.location.reload;
 
@@ -110,20 +114,8 @@
             //    $("#modal-default").modal("show");
             //});
         }
+
         
-        function ViewGroupFiles(ID) {
-
-            var url = "/Admin/ViewGroupFiles?Id=" + ID;
-            window.location.href = url;
-            //window.location.reload;
-
-            //$("#modelbody").load(url, function (e) {
-            //    var id = $('#Customer_Id').val();
-            //    if (id > 0) {
-            //        $('#btnaddnewcustomer').html("update ");
-            //    }
-            //    $("#modal-default").modal("show");
-            //});
-        }
 
 </script>
+

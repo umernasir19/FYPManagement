@@ -186,6 +186,7 @@
     <EntitySetMapping Name="Projects">
       <EntityTypeMapping TypeName="FYPModel.Project">
         <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Session" ColumnName="Session" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
           <ScalarProperty Name="Advisor_Name" ColumnName="Advisor_Name" />

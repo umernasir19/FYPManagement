@@ -193,5 +193,6 @@
     <Property Name="Advisor_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Date_Created" Type="DateTime" Precision="0" />
     <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

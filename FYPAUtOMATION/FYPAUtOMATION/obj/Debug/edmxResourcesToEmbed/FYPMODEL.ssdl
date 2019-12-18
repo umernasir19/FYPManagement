@@ -54,6 +54,7 @@
     <Property Name="Advisor_Name" Type="nvarchar" MaxLength="500" />
     <Property Name="Date_Created" Type="date" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="Session" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>

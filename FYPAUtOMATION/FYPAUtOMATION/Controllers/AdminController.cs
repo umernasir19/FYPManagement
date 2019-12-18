@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -256,6 +257,70 @@ namespace FYPAUtOMATION.Controllers
 
             db.SaveChanges();
             return Json(new { success = true, msg = "Updated" }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ViewGroupFiles(int id)
+        {
+            ViewBag.GroupId = id;
+            return View();
+        }
+        [HttpGet]
+        public JsonResult GetGroupsFiles(int id)
+        {
+            try
+            {
+                //{
+                var groups = db.tblFiles.Where(p=>p.Group_ID==id).ToList();
+
+                return Json(new { success = true, msg = "Success", data = groups }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public FileResult Download(int id)
+        {
+            string fpath = db.tblFiles.Where(p => p.Id == id).Select(x => x.Document_Path).FirstOrDefault();
+            string fullName = Server.MapPath("~" + fpath);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(fullName);
+            string fileName = Path.GetFileName(fullName);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+
+        public ActionResult AddProject()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult AddNewProject(Project pro)
+        {
+            pro.IsActive = true;
+            pro.Date_Created = DateTime.Now;
+            db.Projects.Add(pro);
+            db.SaveChanges();
+            return Json(new {success=true,msg="Added" }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        public JsonResult GetAllProjects()
+        {
+            try
+            {
+                //{
+                var Projects = db.Projects.Where(p => p.IsActive == true).ToList();
+
+                return Json(new { success = true, msg = "Success", data = Projects }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

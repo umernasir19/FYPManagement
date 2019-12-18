@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "GroupsList";
 }
+
 <link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -34,6 +35,8 @@
                             <thead>
                                 <tr>
                                     <th>Group Name</th>
+                                    <th>Member 1 Name</th>
+                                    <th>Member 2 Name</th>
                                     <th>Action</th>
 
 
@@ -58,7 +61,7 @@
         $(document).ready(function () {
 
             $.ajax({
-                url: "/Admin/GetGroupsList",
+                url: "/Advisor/GetGroupsList",
                 success: function (data) {
                     bindCustomersInDataTable(data);
                 }
@@ -74,12 +77,14 @@
 
                     columns: [
 
-                        { data: 'GroupName' },
+                        { data: 'Group_Name' },
+                        { data: 'Student1_Name' },
+                        { data: 'Student2_Name' },
                         {
-                            "data": "Id",
+                            "data": "group_id",
                             "render": function (Id, type, full, meta) {
 
-                                return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+                                return '<a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
 
                             },
                             "orderable": true,
@@ -96,21 +101,8 @@
 
         });
 
-        function UpdateGroupDescription(ID) {
+      
 
-            var url = "/Admin/UpdateGroupDetails?Id=" + ID;
-            window.location.href = url;
-            //window.location.reload;
-
-            //$("#modelbody").load(url, function (e) {
-            //    var id = $('#Customer_Id').val();
-            //    if (id > 0) {
-            //        $('#btnaddnewcustomer').html("update ");
-            //    }
-            //    $("#modal-default").modal("show");
-            //});
-        }
-        
         function ViewGroupFiles(ID) {
 
             var url = "/Admin/ViewGroupFiles?Id=" + ID;
@@ -127,3 +119,5 @@
         }
 
 </script>
+
+

@@ -344,6 +344,9 @@
     <Content Include="Views\Student\UploadDeliverables.cshtml" />
     <Content Include="Views\Advisor\Deliverables.cshtml" />
     <Content Include="Views\Advisor\GroupFiles.cshtml" />
+    <Content Include="Views\Admin\ViewGroupFiles.cshtml" />
+    <Content Include="Views\Admin\AddProject.cshtml" />
+    <Content Include="Views\Advisor\GroupsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

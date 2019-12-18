@@ -59,6 +59,7 @@
           <Property Name="Advisor_Name" Type="nvarchar" MaxLength="500" />
           <Property Name="Date_Created" Type="date" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="Session" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -386,6 +387,7 @@
           <Property Name="Advisor_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Date_Created" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -578,6 +580,7 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="FYPModel.Project">
               <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Session" ColumnName="Session" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
                 <ScalarProperty Name="Advisor_Name" ColumnName="Advisor_Name" />

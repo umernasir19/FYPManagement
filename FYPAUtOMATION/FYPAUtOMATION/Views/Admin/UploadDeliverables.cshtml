@@ -1,0 +1,160 @@
+﻿@model FYPAUtOMATION.Deliverable
+
+@{
+    ViewBag.Title = "Upload Deliverables";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Upload Deliverables</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Upload Deliverables</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Upload Deliverables</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        <form id="annoucnementform" method="post">
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        @Html.EditorFor(model => model.Phase, new { htmlAttributes = new { @placeholder = "Phase Name", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Phase, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Advisor Name</label>
+                                        @Html.EditorFor(model => model.Deliverable, new { htmlAttributes = new { @placeholder = "Deliverable Name", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Deliverable, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="button" id="btnsubmit" value="Add Project" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Advisor Name</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Admin/GetAllProjects",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Project_Name' },
+                        { data: 'Advisor_Name' },
+                        //{
+                        //    "data": "Id",
+                        //    "render": function (Id, type, full, meta) {
+
+                        //        return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+
+                        //    },
+                        //    "orderable": true,
+                        //    "searchable": true,
+
+
+                        //}
+
+                    ]
+                });
+
+            }
+
+
+
+
+            $('#btnsubmit').click(function (e) {
+                var form = $("#annoucnementform");
+                $.ajax({
+                    type: 'Post',
+                    data: $(form).serialize(),
+                    url: "/Admin/AddNewProject",
+                    success: function (data) {
+                        if (data.success) {
+                            alert(data.msg);
+                            location.reload();
+                        }
+                    }
+                });
+
+            });
+
+
+
+
+
+
+
+
+        });
+
+
+
+</script>

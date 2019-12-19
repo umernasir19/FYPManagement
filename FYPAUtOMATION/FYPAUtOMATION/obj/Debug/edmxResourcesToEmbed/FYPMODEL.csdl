@@ -150,6 +150,7 @@
     <EntitySet Name="Student_Request" EntityType="FYPModel.Student_Request" />
     <EntitySet Name="Projects" EntityType="FYPModel.Project" />
     <EntitySet Name="Grades" EntityType="FYPModel.Grade" />
+    <EntitySet Name="Deliverables" EntityType="FYPModel.Deliverable" />
   </EntityContainer>
   <ComplexType Name="sp_SignUp_Requests_Result">
     <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -206,6 +207,23 @@
     <Property Name="SecondHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ThirdHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Deliverable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phase" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Deliverable1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Document" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FYP1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FYP2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Due_Date" Type="DateTime" Precision="0" />
+    <Property Name="Time_Due" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SubmitTo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_Active" Type="Boolean" />
     <Property Name="Date_Created" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

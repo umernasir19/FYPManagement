@@ -208,5 +208,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Deliverables">
+      <EntityTypeMapping TypeName="FYPModel.Deliverable">
+        <MappingFragment StoreEntitySet="Deliverables">
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="is_Active" ColumnName="is_Active" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="SubmitTo" ColumnName="SubmitTo" />
+          <ScalarProperty Name="Time_Due" ColumnName="Time_Due" />
+          <ScalarProperty Name="Due_Date" ColumnName="Due_Date" />
+          <ScalarProperty Name="FYP2" ColumnName="FYP2" />
+          <ScalarProperty Name="FYP1" ColumnName="FYP1" />
+          <ScalarProperty Name="Document" ColumnName="Document" />
+          <ScalarProperty Name="Deliverable1" ColumnName="Deliverable" />
+          <ScalarProperty Name="Phase" ColumnName="Phase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -366,5 +366,10 @@ namespace FYPAUtOMATION.Controllers
 
             }
         }
+
+        public ActionResult UploadDeliverables()
+        {
+            return View();
+        }
     }
 }

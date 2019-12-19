@@ -143,12 +143,21 @@
                                                 <div class="form-row">
                                                     
                                                     <div class="form-group col-md-12">
-                                                        @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @placeholder = "Enter Your PAssword", @class = "form-control", @id = "txtboxusername" } })
+                                                        @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @placeholder = "Enter Your Password", @class = "form-control", @id = "txtboxusername" } })
                                                         <div class="validation">
                                                             @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @*<div class="form-row">
+
+                                                    <div class="form-group col-md-12">
+                                                       <select class="form-control" id="loginas">
+                                                           <option class="list-group-item" value="0">Login As Student</option>
+                                                           <option class="list-group-item" value="1">Login As Advisor</option>
+                                                       </select>
+                                                    </div>
+                                                </div>*@
                                                 <div class="form-row">
 
                                                     <div class="form-group col-md-12">
@@ -253,7 +262,13 @@
             //add customer button event
             $("#btnlogin").click(function (e) {
                 e.preventDefault();
+                var loginalue = $('#loginas').val();
                 var form = $("#loginform");
+                //var formData = new FormData(form[0]);
+                //if (loginalue > 0) {
+                //    formData.append('Is_Advisor', true);
+
+                //}
 
                 $.validator.unobtrusive.parse(form);
                 if ($(form).valid()) {

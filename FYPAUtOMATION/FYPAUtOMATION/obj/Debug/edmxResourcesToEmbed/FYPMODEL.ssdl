@@ -26,6 +26,23 @@
     <Property Name="IsActive" Type="bit" />
     <Property Name="Title" Type="nvarchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="Deliverables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phase" Type="varchar" MaxLength="200" />
+    <Property Name="Deliverable" Type="varchar" MaxLength="200" />
+    <Property Name="Document" Type="nvarchar" MaxLength="200" />
+    <Property Name="FYP1" Type="varchar" MaxLength="100" />
+    <Property Name="FYP2" Type="varchar" MaxLength="100" />
+    <Property Name="Due_Date" Type="date" />
+    <Property Name="Time_Due" Type="varchar" MaxLength="100" />
+    <Property Name="SubmitTo" Type="varchar" MaxLength="100" />
+    <Property Name="DocumentPath" Type="text" />
+    <Property Name="is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+  </EntityType>
   <EntityType Name="Document_By_Admin">
     <Key>
       <PropertyRef Name="ID" />
@@ -184,6 +201,7 @@
   <EntityContainer Name="FYPModelStoreContainer">
     <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deliverables" EntityType="Self.Deliverables" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />

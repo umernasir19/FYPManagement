@@ -243,6 +243,9 @@
     <Compile Include="Controllers\Api\AccountApiController.cs" />
     <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Deliverable.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Document_By_Admin.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -351,6 +354,7 @@
     <Content Include="Views\Admin\AddProject.cshtml" />
     <Content Include="Views\Advisor\GroupsList.cshtml" />
     <Content Include="Views\Admin\Grades.cshtml" />
+    <Content Include="Views\Admin\UploadDeliverables.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

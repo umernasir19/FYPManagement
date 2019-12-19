@@ -41,6 +41,18 @@
           <Property Name="Is_Active" Type="bit" />
           <Property Name="DateCreated" Type="datetime" />
         </EntityType>
+        <EntityType Name="Grades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="FirstHalf_marks" Type="varchar" MaxLength="20" />
+          <Property Name="SecondHalf_marks" Type="varchar" MaxLength="20" />
+          <Property Name="ThirdHalf_marks" Type="varchar" MaxLength="20" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Date_Created" Type="datetime" />
+        </EntityType>
         <EntityType Name="groups">
           <Key>
             <PropertyRef Name="Id" />
@@ -178,6 +190,7 @@
           <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
@@ -343,6 +356,7 @@
           <EntitySet Name="tblFiles" EntityType="FYPModel.tblFile" />
           <EntitySet Name="Student_Request" EntityType="FYPModel.Student_Request" />
           <EntitySet Name="Projects" EntityType="FYPModel.Project" />
+          <EntitySet Name="Grades" EntityType="FYPModel.Grade" />
         </EntityContainer>
         <ComplexType Name="sp_SignUp_Requests_Result">
           <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -388,6 +402,18 @@
           <Property Name="Date_Created" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="FirstHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SecondHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ThirdHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -586,6 +612,19 @@
                 <ScalarProperty Name="Advisor_Name" ColumnName="Advisor_Name" />
                 <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="FYPModel.Grade">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
+                <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
+                <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

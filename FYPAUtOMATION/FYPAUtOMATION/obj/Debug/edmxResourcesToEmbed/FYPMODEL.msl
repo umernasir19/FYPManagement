@@ -195,5 +195,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="FYPModel.Grade">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
+          <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
+          <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

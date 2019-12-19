@@ -78,8 +78,9 @@
                         {
                             "data": "Id",
                             "render": function (Id, type, full, meta) {
+                                
 
-                                return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+                                return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i><a href="#" class="btn btn-info" onclick="UploadGrades(' + Id + ')"><i class="fa fa-eye">Upload Grades</i>'
 
                             },
                             "orderable": true,
@@ -114,6 +115,21 @@
         function ViewGroupFiles(ID) {
 
             var url = "/Admin/ViewGroupFiles?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+        function UploadGrades(ID) {
+
+            var url = "/Admin/Grades?Id=" + ID;
             window.location.href = url;
             //window.location.reload;
 

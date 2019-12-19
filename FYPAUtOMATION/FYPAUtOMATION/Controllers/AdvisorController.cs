@@ -146,8 +146,8 @@ namespace FYPAUtOMATION.Controllers
                                                 join std1 in db.Students on sgrp.Student_1_ID equals std1.ID
                                                 join std2 in db.Students on sgrp.Student_2_ID equals std2.ID
                                                 join stdadvre in db.Student_Advisor_Request on grp.Id equals stdadvre.Group_Id
-                                                where stdadvre.Advisor_Id == advid
-                                                select new StudentGroupViewModel
+                                                where stdadvre.Advisor_Id == advid && stdadvre.Is_Accepted==true
+                              select new StudentGroupViewModel
                                                 {
                                                     group_id = grp.Id,
                                                     Group_Name = grp.GroupName,

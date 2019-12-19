@@ -36,6 +36,18 @@
     <Property Name="Is_Active" Type="bit" />
     <Property Name="DateCreated" Type="datetime" />
   </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="FirstHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="SecondHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="ThirdHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+  </EntityType>
   <EntityType Name="groups">
     <Key>
       <PropertyRef Name="Id" />
@@ -173,6 +185,7 @@
     <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />

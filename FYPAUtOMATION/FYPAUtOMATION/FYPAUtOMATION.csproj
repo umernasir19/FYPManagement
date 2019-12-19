@@ -264,6 +264,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="group.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -347,6 +350,7 @@
     <Content Include="Views\Admin\ViewGroupFiles.cshtml" />
     <Content Include="Views\Admin\AddProject.cshtml" />
     <Content Include="Views\Advisor\GroupsList.cshtml" />
+    <Content Include="Views\Admin\Grades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

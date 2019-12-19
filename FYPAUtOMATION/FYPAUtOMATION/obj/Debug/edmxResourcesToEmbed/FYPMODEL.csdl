@@ -149,6 +149,7 @@
     <EntitySet Name="tblFiles" EntityType="FYPModel.tblFile" />
     <EntitySet Name="Student_Request" EntityType="FYPModel.Student_Request" />
     <EntitySet Name="Projects" EntityType="FYPModel.Project" />
+    <EntitySet Name="Grades" EntityType="FYPModel.Grade" />
   </EntityContainer>
   <ComplexType Name="sp_SignUp_Requests_Result">
     <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -194,5 +195,17 @@
     <Property Name="Date_Created" Type="DateTime" Precision="0" />
     <Property Name="IsActive" Type="Boolean" />
     <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="FirstHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SecondHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ThirdHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+    <Property Name="Date_Created" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

@@ -322,5 +322,49 @@ namespace FYPAUtOMATION.Controllers
                 return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+
+
+        public ActionResult Grades(int id)
+        {
+            Grade grades = db.Grades.Where(p => p.GroupId == id).FirstOrDefault();
+            if (grades == null)
+            {
+                grades = new Grade();
+                grades.GroupId = id;
+            }
+            else
+            {
+
+            }
+            
+            return View(grades);
+        }
+
+        [HttpPost]
+        public JsonResult UploadGrades(Grade gr)
+        {
+            var checkexisting = db.Grades.Where(p => p.GroupId == gr.GroupId).FirstOrDefault();
+            if (checkexisting == null)
+            {//add new
+                gr.Is_Active = true;
+                gr.Date_Created = DateTime.Now;
+                db.Grades.Add(gr);
+                db.SaveChanges();
+                return Json(new { success = true, msg = "Successfull" }, JsonRequestBehavior.AllowGet);
+
+            }
+            else
+            {
+                var grade = new Grade() { Id = gr.Id };
+                db.Grades.Attach(grade);
+                grade.FirstHalf_marks = gr.FirstHalf_marks;
+                grade.SecondHalf_marks = gr.SecondHalf_marks;
+                grade.ThirdHalf_marks = gr.ThirdHalf_marks;
+                db.Grades.Add(grade);
+                db.SaveChanges();
+                return Json(new { success = true, msg = "Successfull" }, JsonRequestBehavior.AllowGet);
+
+            }
+        }
     }
 }

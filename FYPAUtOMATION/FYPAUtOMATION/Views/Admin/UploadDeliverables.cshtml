@@ -39,19 +39,49 @@
                                 <div class="col-sm-4">
                                     <!-- text input -->
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>Phase</label>
                                         @Html.EditorFor(model => model.Phase, new { htmlAttributes = new { @placeholder = "Phase Name", @class = "form-control", @id = "txtboxempname" } })
                                     </div>
                                     @Html.ValidationMessageFor(model => model.Phase, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label>Advisor Name</label>
-                                        @Html.EditorFor(model => model.Deliverable, new { htmlAttributes = new { @placeholder = "Deliverable Name", @class = "form-control", @id = "txtboxempname" } })
+                                        <label>Deliverables</label>
+                                        @Html.EditorFor(model => model.Deliverable1, new { htmlAttributes = new { @placeholder = "Deliverable Name", @class = "form-control", @id = "txtboxempname" } })
                                     </div>
-                                    @Html.ValidationMessageFor(model => model.Deliverable, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Deliverable1, "", new { @class = "text-danger" })
                                 </div>
-
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Document</label>
+                                        @Html.EditorFor(model => model.Document, new { htmlAttributes = new { @placeholder = "Document Name", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Document, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>FYP-I</label>
+                                        @Html.EditorFor(model => model.FYP1, new { htmlAttributes = new { @placeholder = "FYP-I", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.FYP1, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>FYP-II</label>
+                                        @Html.EditorFor(model => model.FYP2, new { htmlAttributes = new { @placeholder = "FYP-II", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.FYP2, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Due On</label>
+                                        @Html.EditorFor(model => model.Due_Date, new { htmlAttributes = new { @placeholder = "Due Date", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Due_Date, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-4">

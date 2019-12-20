@@ -11,7 +11,8 @@ namespace FYPAUtOMATION
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Deliverable
     {
         public int Id { get; set; }
@@ -20,6 +21,9 @@ namespace FYPAUtOMATION
         public string Document { get; set; }
         public string FYP1 { get; set; }
         public string FYP2 { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Due_Date { get; set; }
         public string Time_Due { get; set; }
         public string SubmitTo { get; set; }

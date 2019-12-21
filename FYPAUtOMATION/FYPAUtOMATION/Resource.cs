@@ -13,25 +13,18 @@ namespace FYPAUtOMATION
 {
 
 using System;
+    using System.Collections.Generic;
     
-public partial class sp_SignUp_Requests_Result
+public partial class Resource
 {
 
-    public string User_Name { get; set; }
-
-    public string Status { get; set; }
-
-    public string Email { get; set; }
-
-    public Nullable<bool> Is_Advisor { get; set; }
-
-    public Nullable<bool> Is_Student { get; set; }
-
-    public string Student_Registration_No { get; set; }
-
-    public string Designation { get; set; }
-
     public int Id { get; set; }
+
+    public string ResourceName { get; set; }
+
+    public Nullable<bool> Is_Active { get; set; }
+
+    public Nullable<System.DateTime> datecreated { get; set; }
 
 }
 

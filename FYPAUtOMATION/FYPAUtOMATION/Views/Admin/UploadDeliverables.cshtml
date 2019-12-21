@@ -86,7 +86,22 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input type="button" id="btnsubmit" value="Add Project" class="btn btn-primary" />
+                                        <label>Time On</label>
+                                        @Html.EditorFor(model => model.Time_Due, new { htmlAttributes = new { @placeholder = "Time e.g: 4:00", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Time_Due, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Due On</label>
+                                        @Html.EditorFor(model => model.SubmitTo, new { htmlAttributes = new { @placeholder = "Submit To", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.SubmitTo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>.</label>
+                                        <input type="button" id="btnsubmit"  value="Upload Deliverables" class="form-control btn btn-primary" />
                                     </div>
                                 </div>
                             </div>
@@ -95,10 +110,14 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Project Name</th>
-                                    <th>Advisor Name</th>
-
-
+                                    <th>Phase</th>
+                                    <th>Deliverables</th>
+                                    <th>Document</th>
+                                    <th>FYP-I</th>
+                                    <th>FYP-II</th>
+                                    <th>Due On</th>
+                                    <th>Time</th>
+                                    <th>Submit To</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -121,7 +140,7 @@
         $(document).ready(function () {
 
             $.ajax({
-                url: "/Admin/GetAllProjects",
+                url: "/Admin/GetAllDeliverables",
                 success: function (data) {
                     bindCustomersInDataTable(data);
                 }
@@ -137,8 +156,15 @@
 
                     columns: [
 
-                        { data: 'Project_Name' },
-                        { data: 'Advisor_Name' },
+                        { data: 'Phase' },
+                        { data: 'Deliverable1' },
+                        { data: 'Document' },
+                        { data: 'FYP1' },
+                        { data: 'FYP2' },
+                        { data: 'Due_Date' },
+                        { data: 'Time_Due' },
+                        { data: 'SubmitTo' },
+                        
                         //{
                         //    "data": "Id",
                         //    "render": function (Id, type, full, meta) {
@@ -165,7 +191,7 @@
                 $.ajax({
                     type: 'Post',
                     data: $(form).serialize(),
-                    url: "/Admin/AddNewProject",
+                    url: "/Admin/UploadNewDeliverables",
                     success: function (data) {
                         if (data.success) {
                             alert(data.msg);

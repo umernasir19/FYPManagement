@@ -195,19 +195,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Grades">
-      <EntityTypeMapping TypeName="FYPModel.Grade">
-        <MappingFragment StoreEntitySet="Grades">
-          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
-          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
-          <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
-          <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
-          <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
-          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Deliverables">
       <EntityTypeMapping TypeName="FYPModel.Deliverable">
         <MappingFragment StoreEntitySet="Deliverables">
@@ -222,6 +209,52 @@
           <ScalarProperty Name="Document" ColumnName="Document" />
           <ScalarProperty Name="Deliverable1" ColumnName="Deliverable" />
           <ScalarProperty Name="Phase" ColumnName="Phase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="FYPModel.Grade">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
+          <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
+          <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_roadMap">
+      <EntityTypeMapping TypeName="FYPModel.Project_roadMap">
+        <MappingFragment StoreEntitySet="Project_roadMap">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="is_Active" ColumnName="is_Active" />
+          <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resources">
+      <EntityTypeMapping TypeName="FYPModel.Resource">
+        <MappingFragment StoreEntitySet="Resources">
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="FYPModel.notification">
+        <MappingFragment StoreEntitySet="notifications">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Isread" ColumnName="Isread" />
+          <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+          <ScalarProperty Name="N_To" ColumnName="N_To" />
+          <ScalarProperty Name="Notification_Msg" ColumnName="Notification_Msg" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

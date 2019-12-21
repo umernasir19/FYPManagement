@@ -276,10 +276,19 @@
     <Compile Include="Models\AdminDocument.cs" />
     <Compile Include="Models\StudentGroupViewModel.cs" />
     <Compile Include="Models\User_Registration.cs" />
+    <Compile Include="notification.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Project.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Project_roadMap.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -354,7 +363,12 @@
     <Content Include="Views\Admin\AddProject.cshtml" />
     <Content Include="Views\Advisor\GroupsList.cshtml" />
     <Content Include="Views\Admin\Grades.cshtml" />
+    <Content Include="Views\Admin\Project_RoadMap.cshtml" />
     <Content Include="Views\Admin\UploadDeliverables.cshtml" />
+    <Content Include="Views\Admin\UploadResources.cshtml" />
+    <Content Include="Views\Student\ProjectList.cshtml" />
+    <Content Include="Views\Student\ProjectMap.cshtml" />
+    <Content Include="Views\Student\DeliverableDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -367,6 +381,7 @@
     <Folder Include="Deliverables\" />
     <Folder Include="Dist\img\" />
     <Folder Include="Docs\" />
+    <Folder Include="ProjectRoadMap\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>

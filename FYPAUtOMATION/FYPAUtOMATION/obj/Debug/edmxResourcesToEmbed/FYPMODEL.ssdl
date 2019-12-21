@@ -74,6 +74,27 @@
     <Property Name="Is_Active" Type="bit" />
     <Property Name="DateCreated" Type="datetime" />
   </EntityType>
+  <EntityType Name="notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notification_Msg" Type="text" />
+    <Property Name="N_To" Type="int" />
+    <Property Name="Group_Id" Type="int" />
+    <Property Name="Isread" Type="bit" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="is_active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Project_roadMap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Path" Type="text" />
+    <Property Name="is_Active" Type="bit" />
+    <Property Name="DateCreated" Type="date" />
+  </EntityType>
   <EntityType Name="Projects">
     <Key>
       <PropertyRef Name="ID" />
@@ -84,6 +105,15 @@
     <Property Name="Date_Created" Type="date" />
     <Property Name="IsActive" Type="bit" />
     <Property Name="Session" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Resources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="varchar" MaxLength="50" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="datecreated" Type="datetime" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -205,7 +235,10 @@
     <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notifications" EntityType="Self.notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_roadMap" EntityType="Self.Project_roadMap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resources" EntityType="Self.Resources" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Document" EntityType="Self.Student_Document" Schema="dbo" store:Type="Tables" />

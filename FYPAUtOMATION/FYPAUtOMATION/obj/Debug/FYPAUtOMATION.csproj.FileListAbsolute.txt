@@ -277,3 +277,169 @@ E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\Fyp\FYPManagement\FYPAUt
 E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\Fyp\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.csprojResolveAssemblyReference.cache
 E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\Fyp\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.dll
 E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\Fyp\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.pdb
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\ApplicationInsights.config
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\csc.exe
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\vbc.exe
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.pdb
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.xml
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.csprojResolveAssemblyReference.cache
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.dll
+C:\Users\Mohammad\Desktop\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.pdb
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\ApplicationInsights.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\csc.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Collections.Immutable.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Reflection.Metadata.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\vbc.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.dll.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.pdb
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.Web.Infrastructure.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.csprojResolveAssemblyReference.cache
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.pdb
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\ApplicationInsights.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\csc.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Collections.Immutable.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\System.Reflection.Metadata.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\vbc.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\roslyn\VBCSCompiler.exe.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.dll.config
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\FYPAUtOMATION.pdb
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.Web.Infrastructure.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\EntityFramework.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.DependencyCollector.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.Web.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.AI.WindowsServer.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.ApplicationInsights.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\Newtonsoft.Json.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Net.Http.Formatting.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Http.WebHost.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Razor.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Deployment.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Webpages.Razor.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Helpers.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\bin\System.Web.Mvc.xml
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.csprojResolveAssemblyReference.cache
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.dll
+E:\Visual Studio Projects\FreeLance\FYPAutomation Hamza\FYPManagement Dsign\FYPAUtOMATION\FYPAUtOMATION\obj\Debug\FYPAUtOMATION.pdb

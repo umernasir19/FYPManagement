@@ -1,7 +1,6 @@
-﻿@model FYPAUtOMATION.Project
-
+﻿
 @{
-    ViewBag.Title = "Add Project";
+    ViewBag.Title = "ProjectList";
 }
 
 
@@ -10,11 +9,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                
+
                 <div class="col-sm-12 mt-3">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add Project</li>
+                        <li class="breadcrumb-item active">Projects</li>
                     </ol>
                 </div>
             </div>
@@ -27,38 +26,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="section-header">
-                        <h3>Add Project</h3>
+                        <h3>Projects</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
 
                         <form id="annoucnementform" method="post">
 
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                        <label>Title</label>
-                                        @Html.EditorFor(model => model.Project_Name, new { htmlAttributes = new { @placeholder = "Project Name", @class = "form-control", @id = "txtboxempname" } })
-                                    </div>
-                                    @Html.ValidationMessageFor(model => model.Project_Name, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label>Advisor Name</label>
-                                        @Html.EditorFor(model => model.Advisor_Name, new { htmlAttributes = new { @placeholder = "Project Name", @class = "form-control", @id = "txtboxempname" } })
-                                    </div>
-                                    @Html.ValidationMessageFor(model => model.Advisor_Name, "", new { @class = "text-danger" })
-                                </div>
-                                
-                             </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <input type="button" id="btnsubmit" value="Add Project" class="btn btn-primary" />
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
                         </form>
 
                         <table id="example2" class="table table-bordered table-hover">
@@ -126,34 +102,9 @@
 
             }
 
-
-
-
-            $('#btnsubmit').click(function (e) {
-                var form = $("#annoucnementform");
-                $.ajax({
-                    type: 'Post',
-                    data: $(form).serialize(),
-                    url: "/Admin/AddNewProject",
-                    success: function (data) {
-                        if (data.success) {
-                            alert(data.msg);
-                            location.reload();
-                        }
-                    }
-                });
-
-            });
-
-
-
-
-
-
-
-
         });
 
 
 
 </script>
+

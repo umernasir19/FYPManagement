@@ -82,6 +82,12 @@ namespace FYPAUtOMATION.Controllers
 
         public ActionResult RequestList()
         {
+            int stdid = Convert.ToInt32(Session["StudentId"]);
+            if (!CheckStudentGroup(stdid))
+            {
+                //student in group
+                ViewBag.Message = "You Cannot Add Students You Are Already in Group";
+            }
             return View();
 
         }
@@ -241,5 +247,30 @@ namespace FYPAUtOMATION.Controllers
             }
         }
 
+        public ActionResult DeliverableDetails()
+        {
+            return View();
+        }
+        public ActionResult ProjectList()
+        {
+            return View();
+        }
+
+
+        public ActionResult ProjectMap()
+        {
+            return View();
+        }
+
+
+        public ActionResult Notifications()
+        {
+            int stdid = Convert.ToInt32(Session["StudentId"]);
+            if (!CheckStudentGroup(stdid))
+            {
+               
+            }
+            return View();
+        }
     }
 }

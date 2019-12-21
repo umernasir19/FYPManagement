@@ -8,13 +8,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Sign-Up Request</h1>
-                </div>
-                <div class="col-sm-6">
+                
+                <div class="col-sm-12 mt-3">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Sign-Up Request</li>
+                        <li class="breadcrumb-item active">Sign-Up Requests</li>
                     </ol>
                 </div>
             </div>
@@ -26,8 +24,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">User Sign Up Requests</h3>
+                    <div class="section-header">
+                        <h3>Sign-Up Requests</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -88,7 +86,7 @@
                             "data": "Id",
                             "render": function (Id, type, full, meta) {
 
-                                return '<a href="#" class="btn btn-info" onclick="AcceptRequest(' + Id + ')"><i class="fa fa-eye">Accept Request</i>'
+                                return '<a href="#" class="btn btn-info" onclick="AcceptRequest(' + Id + ')"><i class="fa fa-eye">Accept Request</i> <a href="#" class="btn btn-info" onclick="RejectRequest(' + Id + ')"><i class="fa fa-eye">Reject Request</i>'
 
                             },
                             "orderable": true,
@@ -120,92 +118,20 @@
             //});
         }
 
-        function ConfirmDelete(CustomerID) {
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            })
+        function RejectRequest(ID) {
 
-            swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Delete!',
-                cancelButtonText: 'No, cancel!',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/Employee/DeleteEmployee?id=' + CustomerID,
-                        dataType: 'JSON',
-                        success: function (res) {
-                            if (res.success) {
-                                Command: toastr["success"]("success", "Login successful")
+            var url = "/Admin/RejectSignupRequest?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+            alert("Rejected");
 
-                                toastr.options = {
-                                    "closeButton": false,
-                                    "debug": false,
-                                    "newestOnTop": false,
-                                    "progressBar": true,
-                                    "positionClass": "toast-top-center",
-                                    "preventDuplicates": false,
-                                    "onclick": null,
-                                    "showDuration": "300",
-                                    "hideDuration": "1000",
-                                    "timeOut": "5000",
-                                    "extendedTimeOut": "1000",
-                                    "showEasing": "swing",
-                                    "hideEasing": "linear",
-                                    "showMethod": "fadeIn",
-                                    "hideMethod": "fadeOut"
-                                }
-                                window.location.reload();
-                                //toastr.options.timeOut = 1000;
-                                //toastr.options.fadeOut = 1000;
-                                //toastr.options.onHidden = function () {
-                                //    console.log("abc")
-                                //    // this will be executed after fadeout, i.e. 2secs after notification has been show
-                                //    window.location.reload();
-                                //};
-
-
-                            }
-                            else {
-                                swalWithBootstrapButtons.fire(
-                                    'Error!',
-                                    'Failes',
-                                    'success'
-                                    )
-                            }
-                        },
-                        failure: function (res) {
-                            console.log(res);
-                        },
-                        err: function (res) {
-                            console.log(res);
-                        }
-                    })
-
-
-
-
-                } else if (
-                    /* Read more about handling dismissals below */
-                  result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                      'Cancelled',
-                      '',
-                      'error'
-                    )
-                }
-            })
-
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
         }
 
 </script>

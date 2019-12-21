@@ -36,6 +36,7 @@
     <!-- Main Stylesheet File -->
     <link href="~/Dist/css/style.css" rel="stylesheet">
 
+
     <!-- =======================================================
       Theme Name: BizPage
       Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
@@ -75,7 +76,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 mb-3">
                             <form class="example" action="action_page.php">
                                 <input type="text" placeholder="Search.." class="src-ch" name="search">
                                 <button type="submit" class="sb-mt"><i class="fa fa-search"></i></button>
@@ -89,8 +90,8 @@
                         <li class="menu-active"><a href="#intro">Home</a></li>
                         <li><a href="/Account/Login">Login</a></li>
                         <li><a href="/Account/Register">Register</a></li>
-                        <li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
-                        <li><a href="/Announcement/ViewDocuments">Documents</a></li>
+                        @*<li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
+                        <li><a href="/Announcement/ViewDocuments">Documents</a></li>*@
                         @*<li><a href="#team">Team</a></li>*@
                         @*<li class="menu-has-children">
                                 <a href="">Drop Down</a>
@@ -101,7 +102,7 @@
                                     <li><a href="#">Drop Down 5</a></li>
                                 </ul>
                             </li>*@
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">About</a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -114,7 +115,7 @@
         <div class="intro-container">
             <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
-                <ol class="carousel-indicators"></ol>
+
 
                 <div class="carousel-inner" role="listbox">
 
@@ -123,11 +124,11 @@
                     <div class="carousel-item active">
                         <div class="carousel-background"><img src="~/Dist/img/intro-carousel/my-carosel.jpg" alt=""></div>
                         <div class="carousel-container">
-                            <div class="container">
-                                <div class="row">
+                            <div class="container wow bounceInUp">
+                               
                                     <div class="col-md-6 cyk">
                                         <div class="form ">
-                                            <div class="cptr"><a href="#"><img src="~/Dist/img/zabist-logo.png" alt="" title="" /></a></div>
+                                            <div class="cptr mb-2"><a href="#"><img src="~/Dist/img/zabist-logo.png" style="height:100px" alt="" title="" /></a></div>
                                             <div id="errormessage"></div>
                                             <form method="post" role="form" id="loginform" class="contactForm">
                                                 <div class="form-row">
@@ -143,21 +144,12 @@
                                                 <div class="form-row">
                                                     
                                                     <div class="form-group col-md-12">
-                                                        @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @placeholder = "Enter Your Password", @class = "form-control", @id = "txtboxusername" } })
+                                                        @Html.EditorFor(model => model.User_Password, new { htmlAttributes = new { @placeholder = "Enter Your PAssword", @class = "form-control", @id = "txtboxusername" } })
                                                         <div class="validation">
                                                             @Html.ValidationMessageFor(model => model.User_Password, "", new { @class = "text-danger" })
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @*<div class="form-row">
-
-                                                    <div class="form-group col-md-12">
-                                                       <select class="form-control" id="loginas">
-                                                           <option class="list-group-item" value="0">Login As Student</option>
-                                                           <option class="list-group-item" value="1">Login As Advisor</option>
-                                                       </select>
-                                                    </div>
-                                                </div>*@
                                                 <div class="form-row">
 
                                                     <div class="form-group col-md-12">
@@ -171,17 +163,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6"> </div>
 
-                                </div>
+                               
                             </div>
 
-
-                            <!--<div class="carousel-content">
-                              <h2>At vero eos et accusamus</h2>
-                              <p>Nam ~/Dist/libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                              <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-                            </div>!-->
                         </div>
                     </div>
 
@@ -213,7 +198,7 @@
 
 
 
-                    <div class="col-lg-3 col-md-3 footer-links">
+                    <div class="col-lg-3 col-md-3 footer-links" style="text-align:right">
                         <ul>
                             <li> <a href="#">Contact Us </a></li>
                             <li> <a href="#"> Feedback</a></li>
@@ -262,13 +247,7 @@
             //add customer button event
             $("#btnlogin").click(function (e) {
                 e.preventDefault();
-                var loginalue = $('#loginas').val();
                 var form = $("#loginform");
-                //var formData = new FormData(form[0]);
-                //if (loginalue > 0) {
-                //    formData.append('Is_Advisor', true);
-
-                //}
 
                 $.validator.unobtrusive.parse(form);
                 if ($(form).valid()) {

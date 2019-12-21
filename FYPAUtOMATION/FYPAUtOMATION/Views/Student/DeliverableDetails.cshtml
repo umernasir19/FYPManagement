@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "DeliverableDetails";
+}
+
+@model FYPAUtOMATION.Deliverable
+
+@{
+    ViewBag.Title = "Upload Deliverables";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1> Deliverables</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"> Deliverables</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"> Deliverables</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Phase</th>
+                                    <th>Deliverables</th>
+                                    <th>Document</th>
+                                    <th>FYP-I</th>
+                                    <th>FYP-II</th>
+                                    <th>Due On</th>
+                                    <th>Time</th>
+                                    <th>Submit To</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Admin/GetAllDeliverables",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Phase' },
+                        { data: 'Deliverable1' },
+                        { data: 'Document' },
+                        { data: 'FYP1' },
+                        { data: 'FYP2' },
+                        { data: 'Due_Date' },
+                        { data: 'Time_Due' },
+                        { data: 'SubmitTo' },
+
+                        //{
+                        //    "data": "Id",
+                        //    "render": function (Id, type, full, meta) {
+
+                        //        return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+
+                        //    },
+                        //    "orderable": true,
+                        //    "searchable": true,
+
+
+                        //}
+
+                    ]
+                });
+
+            }
+
+
+
+
+          
+
+
+
+
+
+
+
+
+        });
+
+
+
+</script>
+
+

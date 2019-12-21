@@ -8,14 +8,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>View Documents</h1>
-                </div>
-                <div class="col-sm-6">
+            <div class="row mb-2 mt-3">
+               
+                <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">View Documents</li>
+                        <li class="breadcrumb-item active">Documents</li>
                     </ol>
                 </div>
             </div>
@@ -26,8 +24,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">View Documents</h3>
+                    <div class="section-header">
+                        <h3>Documents</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -80,7 +78,7 @@
                             "data": "ID",
                             "render": function (ID, type, full, meta) {
 
-                                return '<a href="#" class="btn btn-info" onclick="Download(' + ID + ')"><i class="fa fa-eye">Download Document</i>'
+                                return '<a href="#" class="btn btn-primary" onclick="Download(' + ID + ')"><i class="">Download Document</i>'
 
                           },
                           "orderable": true,

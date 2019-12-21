@@ -69,6 +69,12 @@ namespace FYPAUtOMATION.Controllers
                 db.Advisors.Attach(advisorslotupdate);
                 advisorslotupdate.Advisors_Slot = slots - 1;
                 db.SaveChanges();
+                db = new FYPEntities();
+                var groupid=db.Student_Advisor_Request.Where(p=>p.Id==id).FirstOrDefault();
+                notification notif = new notification();
+                notif.Notification_Msg = "Your Request Accepted By Advisor";
+                notif.Group_Id = groupid.Group_Id;
+                NotificationAdd(notif);
                 return Json(new { msg = "Successfull", success = true }, JsonRequestBehavior.AllowGet);
             }
             else
@@ -146,8 +152,8 @@ namespace FYPAUtOMATION.Controllers
                                                 join std1 in db.Students on sgrp.Student_1_ID equals std1.ID
                                                 join std2 in db.Students on sgrp.Student_2_ID equals std2.ID
                                                 join stdadvre in db.Student_Advisor_Request on grp.Id equals stdadvre.Group_Id
-                                                where stdadvre.Advisor_Id == advid && stdadvre.Is_Accepted==true
-                              select new StudentGroupViewModel
+                                                where stdadvre.Advisor_Id == advid
+                                                select new StudentGroupViewModel
                                                 {
                                                     group_id = grp.Id,
                                                     Group_Name = grp.GroupName,
@@ -166,6 +172,17 @@ namespace FYPAUtOMATION.Controllers
             {
                 return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        public void NotificationAdd(notification notif)
+        {
+            notif.Isread = false;
+
+            notif.DateCreated = DateTime.Now;
+            notif.is_active = true;
+            db = new FYPEntities();
+            db.notifications.Add(notif);
+            db.SaveChanges();
         }
     }
 }

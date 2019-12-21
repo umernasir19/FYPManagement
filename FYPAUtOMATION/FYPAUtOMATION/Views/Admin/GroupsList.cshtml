@@ -8,10 +8,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Groups List</h1>
-                </div>
-                <div class="col-sm-6">
+                
+                <div class="col-sm-12 mt-3">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Groups List</li>
@@ -25,8 +23,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Groups List</h3>
+                    <div class="section-header">
+                        <h3>Groups List</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -78,9 +76,8 @@
                         {
                             "data": "Id",
                             "render": function (Id, type, full, meta) {
-                                
 
-                                return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i><a href="#" class="btn btn-info" onclick="UploadGrades(' + Id + ')"><i class="fa fa-eye">Upload Grades</i>'
+                                return '<a href="#" class="btn btn-primary" onclick="UpdateGroupDescription(' + Id + ')"><i class="">Update And View Description</i><a href="#" class="btn btn-warning" style="margin-left:13px" onclick="ViewGroupFiles(' + Id + ')"><i class="">View Files</i> <a href="#" class="btn btn-warning" style="margin-left:13px" onclick="UploadGrades(' + Id + ')"><i class="">Grades</i>'
 
                             },
                             "orderable": true,
@@ -126,7 +123,6 @@
             //    $("#modal-default").modal("show");
             //});
         }
-
         function UploadGrades(ID) {
 
             var url = "/Admin/Grades?Id=" + ID;
@@ -141,5 +137,4 @@
             //    $("#modal-default").modal("show");
             //});
         }
-
 </script>

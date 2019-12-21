@@ -79,6 +79,27 @@
           <Property Name="Is_Active" Type="bit" />
           <Property Name="DateCreated" Type="datetime" />
         </EntityType>
+        <EntityType Name="notifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notification_Msg" Type="text" />
+          <Property Name="N_To" Type="int" />
+          <Property Name="Group_Id" Type="int" />
+          <Property Name="Isread" Type="bit" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="is_active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Project_roadMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Document_Path" Type="text" />
+          <Property Name="is_Active" Type="bit" />
+          <Property Name="DateCreated" Type="date" />
+        </EntityType>
         <EntityType Name="Projects">
           <Key>
             <PropertyRef Name="ID" />
@@ -89,6 +110,15 @@
           <Property Name="Date_Created" Type="date" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="Session" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Resources">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResourceName" Type="varchar" MaxLength="50" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="datecreated" Type="datetime" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -210,7 +240,10 @@
           <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notifications" EntityType="Self.notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project_roadMap" EntityType="Self.Project_roadMap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resources" EntityType="Self.Resources" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student_Document" EntityType="Self.Student_Document" Schema="dbo" store:Type="Tables" />
@@ -374,8 +407,11 @@
           <EntitySet Name="tblFiles" EntityType="FYPModel.tblFile" />
           <EntitySet Name="Student_Request" EntityType="FYPModel.Student_Request" />
           <EntitySet Name="Projects" EntityType="FYPModel.Project" />
-          <EntitySet Name="Grades" EntityType="FYPModel.Grade" />
           <EntitySet Name="Deliverables" EntityType="FYPModel.Deliverable" />
+          <EntitySet Name="Grades" EntityType="FYPModel.Grade" />
+          <EntitySet Name="Project_roadMap" EntityType="FYPModel.Project_roadMap" />
+          <EntitySet Name="Resources" EntityType="FYPModel.Resource" />
+          <EntitySet Name="notifications" EntityType="FYPModel.notification" />
         </EntityContainer>
         <ComplexType Name="sp_SignUp_Requests_Result">
           <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -422,18 +458,6 @@
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Grade">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupId" Type="Int32" />
-          <Property Name="FirstHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SecondHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ThirdHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Is_Active" Type="Boolean" />
-          <Property Name="Date_Created" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Deliverable">
           <Key>
             <PropertyRef Name="Id" />
@@ -450,6 +474,48 @@
           <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="is_Active" Type="Boolean" />
           <Property Name="Date_Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="FirstHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SecondHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ThirdHalf_marks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Date_Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Project_roadMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Document_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="is_Active" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="datecreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notification_Msg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="N_To" Type="Int32" />
+          <Property Name="Group_Id" Type="Int32" />
+          <Property Name="Isread" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="is_active" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -651,19 +717,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Grades">
-            <EntityTypeMapping TypeName="FYPModel.Grade">
-              <MappingFragment StoreEntitySet="Grades">
-                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
-                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
-                <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
-                <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
-                <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Deliverables">
             <EntityTypeMapping TypeName="FYPModel.Deliverable">
               <MappingFragment StoreEntitySet="Deliverables">
@@ -678,6 +731,52 @@
                 <ScalarProperty Name="Document" ColumnName="Document" />
                 <ScalarProperty Name="Deliverable1" ColumnName="Deliverable" />
                 <ScalarProperty Name="Phase" ColumnName="Phase" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="FYPModel.Grade">
+              <MappingFragment StoreEntitySet="Grades">
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="ThirdHalf_marks" ColumnName="ThirdHalf_marks" />
+                <ScalarProperty Name="SecondHalf_marks" ColumnName="SecondHalf_marks" />
+                <ScalarProperty Name="FirstHalf_marks" ColumnName="FirstHalf_marks" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project_roadMap">
+            <EntityTypeMapping TypeName="FYPModel.Project_roadMap">
+              <MappingFragment StoreEntitySet="Project_roadMap">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="is_Active" ColumnName="is_Active" />
+                <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="FYPModel.Resource">
+              <MappingFragment StoreEntitySet="Resources">
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notifications">
+            <EntityTypeMapping TypeName="FYPModel.notification">
+              <MappingFragment StoreEntitySet="notifications">
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Isread" ColumnName="Isread" />
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+                <ScalarProperty Name="N_To" ColumnName="N_To" />
+                <ScalarProperty Name="Notification_Msg" ColumnName="Notification_Msg" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

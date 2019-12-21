@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,22 +23,23 @@ namespace FYPAUtOMATION.Controllers
         [HttpGet]
         public JsonResult SignUpRequest()
         {
-            try {
+            try
+            {
                 //{
                 var reques = db.sp_SignUp_Requests().ToList();
 
-                return Json(new { success = false, msg = "Internal Server Error",data=reques }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, msg = "Internal Server Error", data = reques }, JsonRequestBehavior.AllowGet);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return Json(new { success = false, msg = "Internal Server Error"+ex.Message }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
 
 
         public ActionResult AcceptRequests(int id)
         {
-            var user = new User { Id=id };
+            var user = new User { Id = id };
             //db.sp_Accept_SignUp(id);
             db.Users.Attach(user);
             try
@@ -47,6 +49,11 @@ namespace FYPAUtOMATION.Controllers
                 user.Status = "Active";
                 db.SaveChanges();
                 db.Dispose();
+                notification notifc = new notification();
+                notifc.Notification_Msg = "Your Sign Up Request Is Accepted";
+                notifc.N_To = id;
+                 NotificationAdd(notifc);
+               
             }
             catch (DbEntityValidationException e)
             {
@@ -64,11 +71,11 @@ namespace FYPAUtOMATION.Controllers
             }
             db = new FYPEntities();
             var usr = db.Users.Where(p => p.Id == id).FirstOrDefault();
-            if (usr.Is_Student==true)
+            if (usr.Is_Student == true)
             {
                 //student data update in students table
-                int stdid =Convert.ToInt32(usr.Std_Adv_Id);
-                var student = new Student() {ID=stdid };
+                int stdid = Convert.ToInt32(usr.Std_Adv_Id);
+                var student = new Student() { ID = stdid };
                 db.Students.Attach(student);
                 student.IsPending = false;
                 student.IsActive = true;
@@ -111,8 +118,19 @@ namespace FYPAUtOMATION.Controllers
             }
 
 
-            return RedirectToAction("AcceptSignUp","Admin");
+            return RedirectToAction("AcceptSignUp", "Admin");
         }
+
+        public EmptyResult RejectSignupRequest(int id)
+        {
+            var user = new User() { Id = id };
+            db.Users.Attach(user);
+            user.Is_Block = true;
+            user.Is_Active = false;
+            db.SaveChanges();
+            return null;
+        }
+
 
         public ActionResult UploadDocument()
         {
@@ -135,8 +153,8 @@ namespace FYPAUtOMATION.Controllers
 
             db.Document_By_Admin.Add(docsbyadmin);
             db.SaveChanges();
-            return Json(new {success=true,msg="Saved" }, JsonRequestBehavior.AllowGet);
-            
+            return Json(new { success = true, msg = "Saved" }, JsonRequestBehavior.AllowGet);
+
         }
         public void UploadProfilePicture(AdminDocument admndocs)
         {
@@ -180,7 +198,7 @@ namespace FYPAUtOMATION.Controllers
             try
             {
                 //{
-                var advisors = db.Advisors.Where(p=>p.IsActive==true).ToList();
+                var advisors = db.Advisors.Where(p => p.IsActive == true).ToList();
 
                 return Json(new { success = true, msg = "Success", data = advisors }, JsonRequestBehavior.AllowGet);
             }
@@ -202,9 +220,9 @@ namespace FYPAUtOMATION.Controllers
             db.Advisors.Attach(ad);
             ad.Advisor_Description = adv.Advisor_Description;
             //user.Is_Pending = false;
-            
+
             db.SaveChanges();
-            return Json(new { success = true,msg="Updated" }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = "Updated" }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GroupsList()
@@ -236,14 +254,14 @@ namespace FYPAUtOMATION.Controllers
                                             join std1 in db.Students on sgrp.Student_1_ID equals std1.ID
                                             join std2 in db.Students on sgrp.Student_2_ID equals std2.ID
                                             where grp.Id == id
-                                        select new StudentGroupViewModel
-                                        {
-                                            group_id=grp.Id,
-                                            Group_Name = grp.GroupName,
-                                            Student1_Name=std1.Student_Name,
-                                            Student2_Name=std2.Student_Name
+                                            select new StudentGroupViewModel
+                                            {
+                                                group_id = grp.Id,
+                                                Group_Name = grp.GroupName,
+                                                Student1_Name = std1.Student_Name,
+                                                Student2_Name = std2.Student_Name
 
-                                        }).FirstOrDefault();
+                                            }).FirstOrDefault();
 
             return View(stdgrp);
         }
@@ -256,6 +274,10 @@ namespace FYPAUtOMATION.Controllers
             //user.Is_Pending = false;
 
             db.SaveChanges();
+            notification not = new notification();
+            not.Notification_Msg = "Your Group name is Changed to " + grp.Group_Name + " By Admin";
+            not.Group_Id = grp.group_id;
+            NotificationAdd(not);
             return Json(new { success = true, msg = "Updated" }, JsonRequestBehavior.AllowGet);
         }
 
@@ -270,7 +292,7 @@ namespace FYPAUtOMATION.Controllers
             try
             {
                 //{
-                var groups = db.tblFiles.Where(p=>p.Group_ID==id).ToList();
+                var groups = db.tblFiles.Where(p => p.Group_ID == id).ToList();
 
                 return Json(new { success = true, msg = "Success", data = groups }, JsonRequestBehavior.AllowGet);
             }
@@ -303,7 +325,7 @@ namespace FYPAUtOMATION.Controllers
             pro.Date_Created = DateTime.Now;
             db.Projects.Add(pro);
             db.SaveChanges();
-            return Json(new {success=true,msg="Added" }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = "Added" }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -336,7 +358,7 @@ namespace FYPAUtOMATION.Controllers
             {
 
             }
-            
+
             return View(grades);
         }
 
@@ -370,6 +392,135 @@ namespace FYPAUtOMATION.Controllers
         public ActionResult UploadDeliverables()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult UploadNewDeliverables(Deliverable del)
+        {
+            del.Date_Created = DateTime.Now;
+            del.is_Active = true;
+            db.Deliverables.Add(del);
+            db.SaveChanges();
+            return Json(new { success = true, msg = "Successfull" }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpGet]
+        public JsonResult GetAllDeliverables()
+        {
+            try
+            {
+                //{
+                var Projects = db.Deliverables.Where(p => p.is_Active == true).ToList();
+
+                return Json(new { success = true, msg = "Success", data = Projects }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
+        public ActionResult UploadResources()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult UploadNewResources(Deliverable del)
+        {
+            del.Date_Created = DateTime.Now;
+            del.is_Active = true;
+            db.Deliverables.Add(del);
+            db.SaveChanges();
+            return Json(new { success = true, msg = "Successfull" }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpGet]
+        public JsonResult GetAllResources()
+        {
+            try
+            {
+                //{
+                var Projects = db.Deliverables.Where(p => p.is_Active == true).ToList();
+
+                return Json(new { success = true, msg = "Success", data = Projects }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, msg = "Internal Server Error" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public ActionResult Project_RoadMap()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public JsonResult UploadProjectRoadmap(AdminDocument docs)
+        {
+            var file = docs.Document;
+            if (file != null)
+            {
+                UploadRoadMap(docs);
+            }
+            Project_roadMap docsbyadmin = new Project_roadMap();
+            //docsbyadmin.Document_Path = docs.Document_Name;
+            docsbyadmin.Document_Path = docs.DocumentPath;
+            docsbyadmin.is_Active = true;
+            docsbyadmin.DateCreated = DateTime.Now;
+
+            db.Project_roadMap.Add(docsbyadmin);
+            db.SaveChanges();
+            return Json(new { success = true, msg = "Saved" }, JsonRequestBehavior.AllowGet);
+
+        }
+        public void UploadRoadMap(AdminDocument admndocs)
+        {
+            var file = admndocs.Document;
+            string filename = "";
+            string filepath = "";
+            try
+            {
+
+
+                filename = System.IO.Path.GetFileName(System.IO.Path.GetRandomFileName() + file.FileName);
+                file.SaveAs(Server.MapPath("/ProjectRoadMap/" + filename));
+
+                filepath = "/ProjectRoadMap/" + filename;
+                //file.SaveAs(Server.MapPath(filepath));
+                string fullPath = Request.MapPath(admndocs.DocumentPath);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+
+                admndocs.DocumentPath = filepath;
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
+        public void NotificationAdd(notification notif)
+        {
+            notif.Isread = false;
+            
+            notif.DateCreated = DateTime.Now;
+            notif.is_active = true;
+            db = new FYPEntities();
+            db.notifications.Add(notif);
+            db.SaveChanges();
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿@model FYPAUtOMATION.Models.AdminDocument
-
+﻿
 @{
-    ViewBag.Title = "Upload Deliverables";
+    ViewBag.Title = "ProjectMap";
 }
 
 <div class="content-wrapper">
@@ -9,11 +8,13 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                
-                <div class="col-sm-12 mt-3">
+                <div class="col-sm-6">
+                    <h1>Project Details</h1>
+                </div>
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Upload Deliverables</li>
+                        <li class="breadcrumb-item active">Project Details</li>
                     </ol>
                 </div>
             </div>
@@ -24,38 +25,24 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="section-header">
-                        <h3>Upload Deliverables</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Project Details</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <form id="annoucnementform" method="post">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <!-- text input -->
-                                    <div class="form-group">
-                                        <label>Title</label>
-                                        @Html.EditorFor(model => model.Document_Name, new { htmlAttributes = new { @placeholder = "Title", @class = "form-control", @id = "txtboxempname" } })
-                                    </div>
-                                    @Html.ValidationMessageFor(model => model.Document_Name, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>File</label>
-                                        <input type="file" id="docfile" value="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="row">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Advisor Name</th>
 
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input type="button" id="btnsubmit" value="Upload" class="btn btn-primary" />
-                                </div>
-                            </div>
-                        </div>
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
@@ -86,7 +73,7 @@
                 $.ajax({
                     type: 'Post',
                     data:formdata,// $(form).serialize(),
-                    url: "/Student/UploadDocument",
+                    url: "/Admin/UploadProjectRoadmap",
                     contentType: false,
                     processData: false,
                     cache: false,

@@ -19,8 +19,11 @@
         <EntityTypeShape EntityType="FYPModel.tblFile" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="FYPModel.Student_Request" Width="1.5" PointX="3.375" PointY="8.75" />
         <EntityTypeShape EntityType="FYPModel.Project" Width="1.5" PointX="5.375" PointY="9.75" />
-        <EntityTypeShape EntityType="FYPModel.Grade" Width="1.5" PointX="7.375" PointY="9.75" />
-        <EntityTypeShape EntityType="FYPModel.Deliverable" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="FYPModel.Deliverable" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="FYPModel.Grade" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="FYPModel.Project_roadMap" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="FYPModel.Resource" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FYPModel.notification" Width="1.5" PointX="3.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

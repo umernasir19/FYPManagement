@@ -25,9 +25,11 @@ namespace FYPAUtOMATION.Controllers
         //check if user has already in group
         public bool CheckStudentGroup(int stdid)
         {
+            //student ingroup==false
             var std = db.Student_Request.Where(p => p.Is_Active == false && p.Is_Accepted == true && p.Request_From_Id == stdid).ToList();
             if (std.Count > 0)
             {
+
                 return false;
             }
             std = db.Student_Request.Where(p => p.Is_Active == false && p.Is_Accepted == true && p.Request_To_Id == stdid).ToList();
@@ -145,6 +147,7 @@ namespace FYPAUtOMATION.Controllers
             if (!CheckStudentGroup(stdid))
             {
                 //student in group
+               // ViewBag.Message = "You Cannot Add Advisors You Are Already in Group";
             }
             else
             {

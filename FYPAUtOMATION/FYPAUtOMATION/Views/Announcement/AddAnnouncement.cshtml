@@ -61,6 +61,19 @@
                             </div>
                         </div>
                     </div>
+
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
@@ -77,6 +90,34 @@
 
 <script type="text/javascript">
         $(document).ready(function () {
+
+
+            $.ajax({
+                url: "/Announcement/getAnnouncement",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Title' },
+                        { data: 'Announcement1' },//or { data: 'MONTH', title: 'Month' }`
+
+                    ]
+                });
+
+            }
+
+
 
 
             $('#btnsubmit').click(function (e) {

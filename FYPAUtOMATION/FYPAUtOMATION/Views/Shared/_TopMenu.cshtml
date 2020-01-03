@@ -22,9 +22,9 @@
                     </div>
                     <div class="col-md-8 mt-2 mb-3">
                         @*<form class="example" action="action_page.php">
-                            <input type="text" placeholder="Search.." class="src-ch" name="search">
-                            <button type="submit" class="sb-mt"><i class="fa fa-search"></i></button>
-                        </form>*@
+                                <input type="text" placeholder="Search.." class="src-ch" name="search">
+                                <button type="submit" class="sb-mt"><i class="fa fa-search"></i></button>
+                            </form>*@
                     </div>
                 </div>
             </div>
@@ -36,28 +36,36 @@
                     {
                         <nav id="nav-menu-container">
                             <ul class="nav-menu">
+                                <li><a href="/Dashboard/Dashboard">Home</a></li>
+                                <li><a href="/Admin/AdvisorsList">Advisors</a></li>
                                 <li class="menu-has-children">
                                     <a href="">Groups</a>
                                     <ul>
                                         <li><a href="/Admin/GroupsList">Group Lists</a></li>
-                                        <li><a href="/Admin/AdvisorsList">Advisor Lists</a></li>
+                                        @*<li><a href="/Admin/AdvisorsList">Advisor Lists</a></li>*@
                                         <li><a href="/Admin/AcceptSignUp">Accept Requests</a></li>
 
                                     </ul>
                                 </li>
-                                <li class="menu-has-children">
-                                    <a href="">Deliverables</a>
-                                    <ul>
-                                        <li><a href="/Admin/UploadDocument">Templates</a></li>
-                                        <li><a href="/Admin/UploadDeliverables">Upload Deliverables</a></li>
-                                        <li><a href="/Admin/UploadResources">Resources</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="/Admin/AcceptSignUp">Requests</a></li>
+                                @*<li class="menu-has-children">
+                                        <a href="">Deliverables</a>
+                                        <ul>
+                                            <li><a href="/Admin/UploadDocument">Templates</a></li>
+                                            <li><a href="/Admin/UploadDeliverables">Upload Deliverables</a></li>
+                                            <li><a href="/Admin/UploadResources">Resources</a></li>
+                                        </ul>
+                                    </li>*@
                                 <li class="menu-has-children">
                                     <a href="">Project</a>
                                     <ul>
-                                        <li><a href="/Admin/AddProject">Add Project</a></li>
+                                        <li><a href="/Admin/AddProject">Project</a></li>
                                         <li><a href="/Admin/Project_RoadMap">Add Project RoadMap</a></li>
+                                        <li><a href="/Admin/UploadDeliverables">Deliverables</a></li>
+                                        <li><a href="/Admin/UploadDeliverables">Deliverables Details</a></li>
+                                        <li><a href="/Admin/UploadDeliverables">Grades</a></li>
+                                        <li><a href="/Admin/UploadDeliverables">Szabgit</a></li>
+                                        <li><a href="/Admin/UploadDeliverables">Resources</a></li>
                                     </ul>
                                 </li>
 
@@ -94,42 +102,47 @@
                                     <a href="">Project</a>
                                     <ul>
                                         <li><a href="/Student/ProjectList">Project List</a></li>
-                                        <li><a href="/Student/ProjectMap">Project Road Map</a></li>
-                                        <li><a href="/Student/DeliverableDetails">Deliverable Details</a></li>
-                                        <li><a href="/Student/RequestList">Requests</a></li>
+                                        <li><a href="/Student/ProjectMap">Project Details</a></li>
+                                        <li><a href="/Student/DeliverableDetails">Deliverable</a></li>
+                                        <li><a href="/Student/UploadDeliverables">Upload Deliverables</a></li>
+                                        <li><a href="/Announcement/ViewDocuments">Templetes</a></li>
+                                        <li><a href="#">Szabgit</a></li>
+                                        <li><a href="/Announcement/ViewDocuments">Grades</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
+                                <li><a href="#">Resources</a></li>
                                 @*<li><a href="/Student/StudentList">Student List</a></li>
-                                <li class="menu-has-children">
-                                    <a href="">Requests</a>
-                                    <ul>
-                                        <li><a href="/Student/RequestList">Group Requests</a></li>
-                                        <li><a href="/Student/SendAdvisorRequest">Advisor List</a></li>
+                                    <li class="menu-has-children">
+                                        <a href="">Requests</a>
+                                        <ul>
+                                            <li><a href="/Student/RequestList">Group Requests</a></li>
+                                            <li><a href="/Student/SendAdvisorRequest">Advisor List</a></li>
 
-                                    </ul>
-                                </li>*@
+                                        </ul>
+                                    </li>*@
 
-                                <li><a href="/Student/Notifications">Notifications</a></li>
+                                @*<li><a href="/Student/Notifications">Notifications</a></li>*@
                                 @*<li><a href="/Student/RequestList">Request List</a></li>
                                     <li><a href="/Student/SendAdvisorRequest">Advisors</a></li>*@
-                                <li class="menu-has-children">
-                                    <a href="">Deliverables</a>
-                                    <ul>
-                                        <li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
-                                        <li><a href="/Announcement/ViewDocuments">Documents</a></li>
-                                        <li><a href="/Student/UploadDeliverables">Upload Deliverables</a></li>
-                                        <li><a href="/Student/DeliverableDetails">Deliverable Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-has-children">
-                                    <a href="">Project</a>
-                                    <ul>
-                                        <li><a href="/Student/ProjectList">Project List</a></li>
-                                        <li><a href="/Student/ProjectMap">Project Road Map</a></li>
+                                @*<li class="menu-has-children">
+                                        <a href="">Deliverables</a>
+                                        <ul>
+                                            <li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
+                                            <li><a href="/Announcement/ViewDocuments">Documents</a></li>
+                                            <li><a href="/Student/UploadDeliverables">Upload Deliverables</a></li>
+                                            <li><a href="/Student/DeliverableDetails">Deliverable Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-has-children">
+                                        <a href="">Project</a>
+                                        <ul>
+                                            <li><a href="/Student/ProjectList">Project List</a></li>
+                                            <li><a href="/Student/ProjectMap">Project Road Map</a></li>
 
 
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>*@
                                 @*<li><a href="#team">Team</a></li>*@
                                 <li><a href="/Account/Logout">Logout</a></li>
                             </ul>
@@ -140,6 +153,7 @@
                         <nav id="nav-menu-container">
                             <ul class="nav-menu">
                                 <li><a href="/Dashboard/Dashboard">Home</a></li>
+                                <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
                                 <li class="menu-has-children">
                                     <a href="">Groups</a>
                                     <ul>
@@ -148,22 +162,23 @@
 
                                     </ul>
                                 </li>
+                                <li><a href="/Announcement/ViewAnnouncement">Announcements</a></li>
+                                <li><a href="/Student/ProjectList">Project List</a></li>
+                                @*<li class="menu-has-children">
+                                        <a href="">Advisors</a>
+                                        <ul>
+                                            <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
+                                            <li><a href="/Advisor/Deliverables">Deliverables</a></li>
 
-                                <li class="menu-has-children">
-                                    <a href="">Advisors</a>
-                                    <ul>
-                                        <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
-                                        <li><a href="/Advisor/Deliverables">Deliverables</a></li>
-
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>*@
 
                                 @*                                <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
                                     <li><a href="/Advisor/GroupsList">Groups</a></li>
                                     <li><a href="/Advisor/StudentRequests">Requests</a></li>*@
-                                <li><a href="/Announcement/ViewAnnouncement">Announcements</a></li>
+
                                 @*<li><a href="/Advisor/Deliverables">Deliverables</a></li>*@
-                                <li><a href="/Announcement/Grades">Grades</a></li>
+                                <li>@*<a href="/Announcement/Grades">Grades</a>*@</li>
                                 @*<li class="menu-has-children">
                                         <a href="">Drop Down</a>
                                         <ul>
@@ -197,7 +212,7 @@
                                         <li><a href="#">Drop Down 5</a></li>
                                     </ul>
                                 </li>*@
-                            <li><a href="#">About</a></li>
+                            <li><a href="~/Views/about.html">About</a></li>
                         </ul>
                     </nav>
                 }

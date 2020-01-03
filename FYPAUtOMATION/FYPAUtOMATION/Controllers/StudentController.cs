@@ -1,6 +1,7 @@
 ﻿using FYPAUtOMATION.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -262,10 +263,18 @@ namespace FYPAUtOMATION.Controllers
 
         public ActionResult ProjectMap()
         {
+            ViewBag.Projectroadmap = db.Project_roadMap.OrderByDescending(x => x.ID).Take(1).ToList();
             return View();
         }
 
-
+        public FileResult DownloadProjectRoadMap(int id)
+        {
+            string fpath = db.Project_roadMap.Where(p => p.ID == id).Select(x => x.Document_Path).FirstOrDefault();
+            string fullName = Server.MapPath("~" + fpath);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(fullName);
+            string fileName = Path.GetFileName(fullName);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
         public ActionResult Notifications()
         {
             int stdid = Convert.ToInt32(Session["StudentId"]);

@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "ProjectMap";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Project Details</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Project Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Project Details</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Advisor Name</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('#btnsubmit').click(function (e) {
+
+
+                var form = $('#annoucnementform')[0];
+                var file = $("#docfile").get(0).files;
+                var formdata = new FormData(form);
+                formdata.append("Document", file[0]);
+
+
+                $.ajax({
+                    type: 'Post',
+                    data:formdata,// $(form).serialize(),
+                    url: "/Admin/UploadProjectRoadmap",
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.success) {
+                            alert(data.msg);
+                            location.reload();
+                        }
+                    }
+                });
+
+            });
+
+
+
+
+
+
+
+
+        });
+
+
+
+</script>
+

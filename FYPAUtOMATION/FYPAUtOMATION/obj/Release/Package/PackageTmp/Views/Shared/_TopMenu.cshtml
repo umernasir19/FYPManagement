@@ -1,0 +1,207 @@
+﻿<!--==========================
+    Header
+  ============================-->
+<header style="background-color:black">
+
+
+
+
+    <div class="container">
+        <div class="col-md-4">
+            <div id="logo" class="pull-left" style="padding:5%">
+                <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="#intro"><img src="~/Dist/img/autom-logo.png" alt="" title="" /></a>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-1">
+                        <div class="top-bar">
+                            <ul class="inf"></ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8 mt-2 mb-3">
+                        <form class="example" action="action_page.php">
+                            <input type="text" placeholder="Search.." class="src-ch" name="search">
+                            <button type="submit" class="sb-mt"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @{
+                if (Session["RoleID"] != null)
+                {
+
+                    if (Session["RoleID"].ToString() == "1" && Session["RoleID"] != null)
+                    {
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+
+<li class="menu-has-children">
+                                        <a href="">Groups</a>
+                                        <ul>
+                                            <li><a href="/Admin/GroupsList">Group Lists</a></li>
+                                            <li><a href="/Admin/AdvisorsList">Advisor Lists</a></li>
+                                            <li><a href="/Admin/AcceptSignUp">Accept Requests</a></li>
+                                            
+                                        </ul>
+                                    </li>
+
+                                 <li class="menu-has-children">
+                                        <a href="">Deliverables</a>
+                                        <ul>
+                                            <li><a href="/Admin/UploadDocument">Templates</a></li>
+                                            <li><a href="/Admin/UploadDeliverables">Upload Deliverables</a></li>
+                                            <li><a href="/Admin/UploadResources">Resources</a></li>
+                                        </ul>
+                                    </li>
+
+                                <li class="menu-has-children">
+                                    <a href="">Project</a>
+                                    <ul>
+                                        <li><a href="/Admin/AddProject">Add Project</a></li>
+                                        <li><a href="/Admin/Project_RoadMap">Add Project RoadMap</a></li>
+                                    </ul>
+                                </li>
+
+
+                               
+                                <li><a href="/Announcement/AddAnnouncement">Announcements</a></li>
+                               
+                                     <li><a href="/Account/Logout">Logout</a></li>
+
+
+@*                              <li><a href="/Admin/AdvisorsList">Advisors</a></li>
+                                <li><a href="/Admin/GroupsList">Groups</a></li>*@
+  @*                            <li><a href="/Admin/AcceptSignUp">Request Acccept</a></li>*@
+                                @*<li><a href="/Admin/UploadDocument">Templates</a></li>*@
+                                 @*<li><a href="#portfolio">Deliverables</a></li>*@
+                                @*<li><a href="/Announcement/AddAnnouncement">Resources</a></li>*@
+                                
+                                                           </ul>
+                        </nav>
+                    }
+                    else if (Session["RoleID"].ToString() == "2" && Session["RoleID"] != null)
+                    {
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+
+                                <li><a href="/Student/StudentList">Student List</a></li>
+ <li class="menu-has-children">
+                                        <a href="">Requests</a>
+                                        <ul>
+                                            <li><a href="/Student/RequestList"">Group Requests</a></li>
+                                            <li><a href="/Student/SendAdvisorRequest">Advisor List</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                               
+                                <li><a href="/Student/Notifications">Notifications </a></li>
+                                @*<li><a href="/Student/RequestList">Request List</a></li>
+                                <li><a href="/Student/SendAdvisorRequest">Advisors</a></li>*@
+                                <li class="menu-has-children">
+                                    <a href="">Deliverables</a>
+                                    <ul>
+                                        <li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>
+                                        <li><a href="/Announcement/ViewDocuments">Documents</a></li>
+                                        <li><a href="/Student/UploadDeliverables">Upload Deliverables</a></li>
+                                        <li><a href="/Student/DeliverableDetails">Deliverable Details</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="menu-has-children">
+                                    <a href="">Project</a>
+                                    <ul>
+                                        <li><a href="/Student/ProjectList">Project List</a></li>
+                                        <li><a href="/Student/ProjectMap">Project Road Map</a></li>
+                                        
+
+
+                                    </ul>
+                                </li>
+                                @*<li><a href="#team">Team</a></li>*@
+                                <li><a href="/Account/Logout">Logout</a></li>
+                            </ul>
+                        </nav>
+                    }
+                    else
+                    {
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+                                <li><a href="/Dashboard/Dashboard">Home</a></li>
+
+<li class="menu-has-children">
+                                        <a href="">Groups</a>
+                                        <ul>
+                                            <li><a href="/Advisor/GroupsList">Group lists</a></li>
+                                            <li><a href="/Advisor/StudentRequests">Requests</a></li>
+                                            
+                                        </ul>
+                                    </li>
+
+
+<li class="menu-has-children">
+                                        <a href="">Advisors</a>
+                                        <ul>
+                                            <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
+                                            <li><a href="/Advisor/Deliverables">Deliverables</a></li>
+                                            
+                                        </ul>
+                                    </li>
+
+
+@*                                <li><a href="/Advisor/AdvisorSlots">Slots</a></li>
+                                <li><a href="/Advisor/GroupsList">Groups</a></li>
+                                <li><a href="/Advisor/StudentRequests">Requests</a></li>*@
+                                <li><a href="/Announcement/ViewAnnouncement">Announcements</a></li>
+                                @*<li><a href="/Advisor/Deliverables">Deliverables</a></li>*@
+                                <li><a href="/Announcement/Grades">Grades</a></li>
+                                @*<li class="menu-has-children">
+                                        <a href="">Drop Down</a>
+                                        <ul>
+                                            <li><a href="#">Drop Down 1</a></li>
+                                            <li><a href="#">Drop Down 3</a></li>
+                                            <li><a href="#">Drop Down 4</a></li>
+                                            <li><a href="#">Drop Down 5</a></li>
+                                        </ul>
+                                    </li>*@
+                                <li><a href="/Account/Logout">Logout</a></li>
+                            </ul>
+                        </nav>
+                    }
+                }
+                else
+                {
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li class="menu-active"><a href="#intro">Home</a></li>
+                            <li><a href="/Account/Login">Login</a></li>
+                            <li><a href="/Account/Register">Register</a></li>
+                            @*<li><a href="/Announcement/ViewAnnouncement">Announcement</a></li>*@
+                            @*<li><a href="/Announcement/ViewDocuments">Documents</a></li>*@
+                            @*<li><a href="#team">Team</a></li>*@
+                            @*<li class="menu-has-children">
+                                    <a href="">Drop Down</a>
+                                    <ul>
+                                        <li><a href="#">Drop Down 1</a></li>
+                                        <li><a href="#">Drop Down 3</a></li>
+                                        <li><a href="#">Drop Down 4</a></li>
+                                        <li><a href="#">Drop Down 5</a></li>
+                                    </ul>
+                                </li>*@
+                            <li><a href="#contact">About</a></li>
+                        </ul>
+                    </nav>
+                }
+            }
+            <!-- #nav-menu-container -->
+
+
+
+        </div>
+    </div>
+</header><!-- #header -->

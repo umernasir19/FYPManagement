@@ -114,6 +114,9 @@
     <Property Name="ResourceName" Type="varchar" MaxLength="50" />
     <Property Name="Is_Active" Type="bit" />
     <Property Name="datecreated" Type="datetime" />
+    <Property Name="Slots" Type="text" />
+    <Property Name="Contact" Type="text" />
+    <Property Name="Link" Type="text" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>

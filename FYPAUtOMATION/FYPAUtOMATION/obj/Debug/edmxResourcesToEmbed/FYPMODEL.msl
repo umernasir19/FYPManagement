@@ -239,6 +239,9 @@
     <EntitySetMapping Name="Resources">
       <EntityTypeMapping TypeName="FYPModel.Resource">
         <MappingFragment StoreEntitySet="Resources">
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Slots" ColumnName="Slots" />
           <ScalarProperty Name="datecreated" ColumnName="datecreated" />
           <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
           <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />

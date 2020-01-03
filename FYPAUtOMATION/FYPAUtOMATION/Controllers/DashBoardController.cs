@@ -9,8 +9,11 @@ namespace FYPAUtOMATION.Controllers
     public class DashBoardController : Controller
     {
         // GET: DashBoard
+        FYPEntities db = new FYPEntities();
         public ActionResult DashBoard()
         {
+
+            ViewBag.announcemnt = db.Announcements.OrderByDescending(x => x.Id).Take(3).ToList();
             return View();
         }
     }

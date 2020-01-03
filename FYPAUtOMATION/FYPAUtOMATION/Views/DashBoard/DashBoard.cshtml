@@ -27,12 +27,12 @@ font-size:30px;
 <section class="content-header">
         <div class="">
             
-            <div class="col-sm-12">
+            @*<div class="col-sm-12">
                 <ol class="breadcrumb mt-3 float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">DashBoard</li>
+                    <li class="breadcrumb-item"><a href="#"></a></li>
+                    <li class="breadcrumb-item active"></li>
                 </ol>
-            </div>
+            </div>*@
         </div>
 
 <div class="image-box" style="background-image:url(/Dist/img/intro-carousel/my-carosel.jpg)">
@@ -43,30 +43,19 @@ font-size:30px;
 <div class="w3-container">
   <h1 style="padding:5px">Announcements</h1>
 </div>
+    @{ 
+        foreach (var announcm in ViewBag.announcemnt)
+        {
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Announcement 1</h5>
-      <small>7 minutes ago</small>
+      <h5 class="mb-1">@announcm.Title</h5>
+      @*<small>7 minutes ago</small>*@
     </div>
-    <p class="mb-1">Registration Succesfully Completed</p>
-    <small>Click to view</small>
+    <p class="mb-1">@announcm.Announcement1</p>
+    @*<small>Click to view</small>*@
   </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Announcement 2</h5>
-      <small class="text-muted">5 hours ago</small>
-    </div>
-    <p class="mb-1">Group Request Accepted.</p>
-    <small class="text-muted">Click to view</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Announcement 3</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Advisor Assigned.</p>
-    <small class="text-muted">Click to view</small>
-  </a>
+            }
+        }
 </div>
 
 </div>

@@ -429,11 +429,12 @@ namespace FYPAUtOMATION.Controllers
         }
 
         [HttpPost]
-        public JsonResult UploadNewResources(Deliverable del)
+        public JsonResult UploadNewResources(Resource res)
         {
-            del.Date_Created = DateTime.Now;
-            del.is_Active = true;
-            db.Deliverables.Add(del);
+            res.datecreated = DateTime.Now;
+            res.Is_Active = true;
+           // res.is_Active = true;
+            db.Resources.Add(res);
             db.SaveChanges();
             return Json(new { success = true, msg = "Successfull" }, JsonRequestBehavior.AllowGet);
 
@@ -445,9 +446,9 @@ namespace FYPAUtOMATION.Controllers
             try
             {
                 //{
-                var Projects = db.Deliverables.Where(p => p.is_Active == true).ToList();
+                var resources = db.Resources.Where(p=>p.Is_Active==true).ToList();
 
-                return Json(new { success = true, msg = "Success", data = Projects }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, msg = "Success", data = resources }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

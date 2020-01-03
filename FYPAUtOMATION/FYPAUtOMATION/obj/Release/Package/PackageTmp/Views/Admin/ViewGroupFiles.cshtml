@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "ViewGroupFiles";
+}
+
+<link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                
+                <div class="col-sm-12 mt-3">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Groups Files</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Groups Files</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Uploaded Date Time</th>
+                                    <th>Action</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            var groupid=@Html.Raw(ViewBag.GroupId);
+
+            $.ajax({
+                url: "/Admin/GetGroupsFiles?id="+groupid,
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Document_Name' },
+                        { data: 'Date_Created' },
+                        {
+                            "data": "Id",
+                            "render": function (Id, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-primary" onclick="Download(' + Id + ')"><i class="">Download</i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+
+                    ]
+                });
+
+            }
+
+
+        });
+
+    function Download(ID) {
+
+        var url = "/Admin/Download?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+        
+
+</script>
+

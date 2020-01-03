@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "AcceptSignUp";
+}
+<link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                
+                <div class="col-sm-12 mt-3">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Sign-Up Requests</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Sign-Up Requests</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Applied For</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+                
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Admin/SignUpRequest",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'User_Name' },
+                        { data: 'Email' },//or { data: 'MONTH', title: 'Month' }`
+                        { data: 'Designation' },
+                        
+                        {
+                            "data": "Id",
+                            "render": function (Id, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-info" onclick="AcceptRequest(' + Id + ')"><i class="fa fa-eye">Accept Request</i> <a href="#" class="btn btn-info" onclick="RejectRequest(' + Id + ')"><i class="fa fa-eye">Reject Request</i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+                    ]
+                });
+
+            }
+
+
+        });
+
+        function AcceptRequest(ID) {
+            
+            var url = "/Admin/AcceptRequests?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+            alert("Accepted");
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+        function RejectRequest(ID) {
+
+            var url = "/Admin/RejectSignupRequest?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+            alert("Rejected");
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+</script>

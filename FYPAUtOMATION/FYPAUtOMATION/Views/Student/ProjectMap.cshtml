@@ -30,18 +30,24 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                       <ul>
+                           
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                           <li>Final Year Computer Science project spans over two semesters i.e. Fall followed by Spring.</li>
+                       </ul>
+                        <p>
+                            @foreach(var pmap in ViewBag.Projectroadmap)
+                            {
 
-                        <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Advisor Name</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                         
+                           <a href="/student/DownloadProjectRoadMap?id=@pmap.ID">Download Project Details</a>
+                            }
+                        </p>
                         
                         <!-- /.card-body -->
                     </div>
@@ -60,32 +66,6 @@
 <script type="text/javascript">
         $(document).ready(function () {
 
-
-            $('#btnsubmit').click(function (e) {
-
-
-                var form = $('#annoucnementform')[0];
-                var file = $("#docfile").get(0).files;
-                var formdata = new FormData(form);
-                formdata.append("Document", file[0]);
-
-
-                $.ajax({
-                    type: 'Post',
-                    data:formdata,// $(form).serialize(),
-                    url: "/Admin/UploadProjectRoadmap",
-                    contentType: false,
-                    processData: false,
-                    cache: false,
-                    success: function (data) {
-                        if (data.success) {
-                            alert(data.msg);
-                            location.reload();
-                        }
-                    }
-                });
-
-            });
 
 
 

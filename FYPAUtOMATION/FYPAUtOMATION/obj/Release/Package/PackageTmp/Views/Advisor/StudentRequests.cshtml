@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "StudentRequests";
+}
+
+<link href="~/Dist/css/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<div class="content-wrapper" style="background-image: url(http://lorempixel.com/1200/800)>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                
+                <div class="col-sm-12 mt-3">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Group Requests</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="section-header">
+                        <h3>Group Requests</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Group Name</th>
+                                    <th>Member 1</th>
+                                    <th>Member 2</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Advisor/GetStudentRequest",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Group_Name' },
+                        { data: 'Student1_Name' },//or { data: 'MONTH', title: 'Month' }`
+                        { data: 'Student2_Name' },
+
+                        {
+                            "data": "std_Adv_req_id",
+                            "render": function (std_Adv_req_id, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-primary" onclick="AcceptRequest(' + std_Adv_req_id + ')"><i class="">Accept Request </i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+                    ]
+                });
+
+            }
+
+
+        });
+
+        function AcceptRequest(ID) {
+
+            var url = "/Advisor/AcceptstudentRequest?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+
+
+
+</script>
+
+
+

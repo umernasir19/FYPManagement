@@ -1,0 +1,117 @@
+﻿@model FYPAUtOMATION.Grade
+@{
+    ViewBag.Title = "Grades";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Add Grades</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add Grades</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Grades</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        <form id="annoucnementform" method="post">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Evalution Marks</label>
+                                        @Html.EditorFor(model => model.FirstHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Mid Marks</label>
+                                        @Html.EditorFor(model => model.SecondHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Finals</label>
+                                        @Html.EditorFor(model => model.ThirdHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                @Html.HiddenFor(model=>model.Id)
+                                @Html.HiddenFor(model => model.GroupId)
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+     
+
+            $('#btnsubmit').click(function (e) {
+                var form = $("#annoucnementform");
+                $.ajax({
+                    type: 'Post',
+                    data: $(form).serialize(),
+                    url: "/Admin/UploadGrades",
+                    success: function (data) {
+                        if (data.success) {
+                            alert(data.msg);
+                            location.reload();
+                        }
+                    }
+                });
+
+            });
+
+
+
+
+
+
+
+
+        });
+
+
+
+</script>
+

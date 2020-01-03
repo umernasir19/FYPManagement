@@ -119,6 +119,9 @@
           <Property Name="ResourceName" Type="varchar" MaxLength="50" />
           <Property Name="Is_Active" Type="bit" />
           <Property Name="datecreated" Type="datetime" />
+          <Property Name="Slots" Type="text" />
+          <Property Name="Contact" Type="text" />
+          <Property Name="Link" Type="text" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -504,6 +507,9 @@
           <Property Name="ResourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Is_Active" Type="Boolean" />
           <Property Name="datecreated" Type="DateTime" Precision="3" />
+          <Property Name="Slots" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="notification">
           <Key>
@@ -761,6 +767,9 @@
           <EntitySetMapping Name="Resources">
             <EntityTypeMapping TypeName="FYPModel.Resource">
               <MappingFragment StoreEntitySet="Resources">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Slots" ColumnName="Slots" />
                 <ScalarProperty Name="datecreated" ColumnName="datecreated" />
                 <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
                 <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />

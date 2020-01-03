@@ -1,7 +1,181 @@
-﻿
+﻿@model FYPAUtOMATION.Resource
+
 @{
     ViewBag.Title = "UploadResources";
 }
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Upload Resource</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Upload Resource</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-<h2>UploadResources</h2>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Upload Resource</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
 
+                        <form id="annoucnementform" method="post">
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Resource Name</label>
+                                        @Html.EditorFor(model => model.ResourceName, new { htmlAttributes = new { @placeholder = "ResourceName Name", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ResourceName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Slots</label>
+                                        @Html.EditorFor(model => model.Slots, new { htmlAttributes = new { @placeholder = "Slots", @class = "form-control", @id = "txtboxmpname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Slots, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Contact</label>
+                                        @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @placeholder = "Contact", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Link</label>
+                                        @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @placeholder = "Link", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>.</label>
+                                        <input type="button" id="btnsubmit" value="Upload Resources" class="form-control btn btn-primary" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </form>
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Resource name</th>
+                                    <th>Slots</th>
+                                    <th>Contact</th>
+                                    <th>Link</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<script src="~/Dist/lib/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/Admin/GetAllResources",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'ResourceName' },
+                        { data: 'Slots' },
+                        { data: 'Contact' },
+                        { data: 'Link' }
+
+                        //{
+                        //    "data": "Id",
+                        //    "render": function (Id, type, full, meta) {
+
+                        //        return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+
+                        //    },
+                        //    "orderable": true,
+                        //    "searchable": true,
+
+
+                        //}
+
+                    ]
+                });
+
+            }
+
+
+
+
+            $('#btnsubmit').click(function (e) {
+                var form = $("#annoucnementform");
+                $.ajax({
+                    type: 'Post',
+                    data: $(form).serialize(),
+                    url: "/Admin/UploadnewResources",
+                    success: function (data) {
+                        if (data.success) {
+                            alert(data.msg);
+                            location.reload();
+                        }
+                    }
+                });
+
+            });
+
+
+
+
+
+
+
+
+        });
+
+
+
+</script>

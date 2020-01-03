@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Advisors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdvisorsName" Type="nvarchar" MaxLength="80" />
+    <Property Name="Advisor_Description" Type="text" />
+    <Property Name="Advisor_Email" Type="nvarchar" MaxLength="120" />
+    <Property Name="Advisor_number" Type="nvarchar" MaxLength="120" />
+    <Property Name="Advisor_Uni_ID" Type="nvarchar" MaxLength="120" />
+    <Property Name="Advisor_Requested_Date" Type="datetime" />
+    <Property Name="Advisor_Accepted_Date" Type="datetime" />
+    <Property Name="IsBlock" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Advisors_Slot" Type="int" />
+  </EntityType>
+  <EntityType Name="Announcements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Announcement" Type="text" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Deliverables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phase" Type="varchar" MaxLength="200" />
+    <Property Name="Deliverable" Type="varchar" MaxLength="200" />
+    <Property Name="Document" Type="nvarchar" MaxLength="200" />
+    <Property Name="FYP1" Type="varchar" MaxLength="100" />
+    <Property Name="FYP2" Type="varchar" MaxLength="100" />
+    <Property Name="Due_Date" Type="date" />
+    <Property Name="Time_Due" Type="varchar" MaxLength="100" />
+    <Property Name="SubmitTo" Type="varchar" MaxLength="100" />
+    <Property Name="DocumentPath" Type="text" />
+    <Property Name="is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Document_By_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentPath" Type="nvarchar" MaxLength="200" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="FirstHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="SecondHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="ThirdHalf_marks" Type="varchar" MaxLength="20" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+  </EntityType>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notification_Msg" Type="text" />
+    <Property Name="N_To" Type="int" />
+    <Property Name="Group_Id" Type="int" />
+    <Property Name="Isread" Type="bit" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="is_active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Project_roadMap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Path" Type="text" />
+    <Property Name="is_Active" Type="bit" />
+    <Property Name="DateCreated" Type="date" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Advisor_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date_Created" Type="date" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Session" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Resources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="varchar" MaxLength="50" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="datecreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Created_By" Type="int" />
+  </EntityType>
+  <EntityType Name="Student_Advisor_Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Student_Id" Type="int" />
+    <Property Name="Advisor_Id" Type="int" />
+    <Property Name="Group_Id" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Accepted" Type="bit" />
+    <Property Name="Date_Accepted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Student_Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Path" Type="nvarchar" MaxLength="200" />
+    <Property Name="Student_Id" Type="int" />
+    <Property Name="Group_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Student_Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Group_Id" Type="int" />
+    <Property Name="Student_1_ID" Type="int" />
+    <Property Name="Student_2_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Student_Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Request_From_Id" Type="int" />
+    <Property Name="Request_To_Id" Type="int" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Accepted" Type="bit" />
+    <Property Name="Is_Rejected" Type="bit" />
+    <Property Name="Date_Accepeted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Student_Name" Type="nvarchar" MaxLength="120" />
+    <Property Name="Student_Registration_No" Type="nvarchar" MaxLength="100" />
+    <Property Name="Student_Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Student_Phone" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsPending" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Document_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Document_Path" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_ID" Type="int" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="User_IN_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Id" Type="int" />
+    <Property Name="User_Id" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Created_By" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_Password" Type="nvarchar" MaxLength="70" />
+    <Property Name="Date_Created" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Block" Type="bit" />
+    <Property Name="Is_Pending" Type="bit" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Is_Student" Type="bit" />
+    <Property Name="Is_Advisor" Type="bit" />
+    <Property Name="Std_Adv_Id" Type="int" />
+  </EntityType>
+  <Function Name="sp_Accept_SignUp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SignUp_Requests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="FYPModelStoreContainer">
+    <EntitySet Name="Advisors" EntityType="Self.Advisors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deliverables" EntityType="Self.Deliverables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document_By_Admin" EntityType="Self.Document_By_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notifications" EntityType="Self.notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_roadMap" EntityType="Self.Project_roadMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resources" EntityType="Self.Resources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Advisor_Request" EntityType="Self.Student_Advisor_Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Document" EntityType="Self.Student_Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Request" EntityType="Self.Student_Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFiles" EntityType="Self.tblFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

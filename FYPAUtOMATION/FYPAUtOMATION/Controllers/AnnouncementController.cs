@@ -23,7 +23,7 @@ namespace FYPAUtOMATION.Controllers
 
         public JsonResult GetAnnouncement()
         {
-            var announcment = db.Announcements.ToList();
+            var announcment = db.Announcements.OrderByDescending(p=>p.Id).ToList();
             return Json(new {data=announcment }, JsonRequestBehavior.AllowGet);
         }
 

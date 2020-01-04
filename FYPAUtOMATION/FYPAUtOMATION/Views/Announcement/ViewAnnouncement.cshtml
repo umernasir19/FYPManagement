@@ -72,12 +72,12 @@
                 var status = "Blocked".toString();
                 var table = $('#example2').DataTable({
                     data: data.data,
-
+                    "ordering": false,
 
                     columns: [
 
                         { data: 'Title' },
-                        { data: 'Announcement1' },//or { data: 'MONTH', title: 'Month' }`
+                        { data: 'Announcement1' }//or { data: 'MONTH', title: 'Month' }`
                       
                     ]
                 });

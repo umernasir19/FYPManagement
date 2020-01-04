@@ -137,8 +137,12 @@ namespace FYPAUtOMATION.Controllers
             stdgrp.Student_2_ID = Stdreq.Request_To_Id;
             stdgrp.Group_Id = grpid;
             db.Student_Group.Add(stdgrp);
-            db.SaveChanges();     
-           return Json(new { success = true, msg = "Successfully sent" }, JsonRequestBehavior.AllowGet);
+            db.SaveChanges();
+
+            NotificationAdd(id);
+
+
+            return Json(new { success = true, msg = "Successfully sent" }, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -285,6 +289,14 @@ namespace FYPAUtOMATION.Controllers
             return View();
         }
 
+
+        public ActionResult ReadNotifications()
+        {
+            int stdid = Convert.ToInt32(Session["StudentId"]);
+            ViewBag.notification = db.notifications.Where(p=>p.N_To==stdid).OrderByDescending(x => x.Id).ToList();
+            return View();
+        }
+
         public FileResult DownloadProjectRoadMap(int id)
         {
             string fpath = db.Project_roadMap.Where(p => p.ID == id).Select(x => x.Document_Path).FirstOrDefault();
@@ -293,14 +305,18 @@ namespace FYPAUtOMATION.Controllers
             string fileName = Path.GetFileName(fullName);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
-        public ActionResult Notifications()
+        public static void NotificationAdd(int id)
         {
-            int stdid = Convert.ToInt32(Session["StudentId"]);
-            if (!CheckStudentGroup(stdid))
-            {
-               
-            }
-            return View();
+            notification notif = new notification();
+            notif.N_To = id;
+            notif.Notification_Msg = "Request Accepted";
+            notif.Isread = false;
+
+            notif.DateCreated = DateTime.Now;
+            notif.is_active = true;
+            FYPEntities db = new FYPEntities();
+            db.notifications.Add(notif);
+            db.SaveChanges();
         }
     }
 }

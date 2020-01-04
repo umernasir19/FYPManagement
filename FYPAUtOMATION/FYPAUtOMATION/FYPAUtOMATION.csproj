@@ -379,6 +379,7 @@
     <Content Include="Views\Advisor\AdvisorSlots.cshtml" />
     <Content Include="Views\Admin\Szabgit.cshtml" />
     <Content Include="Views\Student\ViewGrades.cshtml" />
+    <Content Include="Views\Student\ReadNotifications.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

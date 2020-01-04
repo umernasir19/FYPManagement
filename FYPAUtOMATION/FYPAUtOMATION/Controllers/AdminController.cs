@@ -253,15 +253,30 @@ namespace FYPAUtOMATION.Controllers
                                             join sgrp in db.Student_Group on grp.Id equals sgrp.Group_Id
                                             join std1 in db.Students on sgrp.Student_1_ID equals std1.ID
                                             join std2 in db.Students on sgrp.Student_2_ID equals std2.ID
-                                            where grp.Id == id
+                                         
+                                            where grp.Id == id 
                                             select new StudentGroupViewModel
                                             {
                                                 group_id = grp.Id,
                                                 Group_Name = grp.GroupName,
                                                 Student1_Name = std1.Student_Name,
-                                                Student2_Name = std2.Student_Name
+                                                Student2_Name = std2.Student_Name,
+                                                
 
                                             }).FirstOrDefault();
+
+
+            var advisorname = db.Student_Advisor_Request.Where(p => p.Group_Id == stdgrp.group_id && p.Is_Accepted == true).FirstOrDefault();
+            if (advisorname != null)
+            {
+                int advid = Convert.ToInt32(advisorname.Advisor_Id);
+                var advname = db.Advisors.Where(p => p.Id == advid).FirstOrDefault();
+                stdgrp.AdvisorName = advname.AdvisorsName;
+            }
+            else
+            {
+                stdgrp.AdvisorName = "No Advisor Assigned";
+            }
 
             return View(stdgrp);
         }
@@ -472,6 +487,7 @@ namespace FYPAUtOMATION.Controllers
             }
             Project_roadMap docsbyadmin = new Project_roadMap();
             //docsbyadmin.Document_Path = docs.Document_Name;
+            docsbyadmin.Title = docs.Document_Name;
             docsbyadmin.Document_Path = docs.DocumentPath;
             docsbyadmin.is_Active = true;
             docsbyadmin.DateCreated = DateTime.Now;
@@ -511,6 +527,26 @@ namespace FYPAUtOMATION.Controllers
 
             }
         }
+        
+        
+        public JsonResult GetProjectRoadmap()
+        {
+            var project = db.Project_roadMap.Where(x=>x.is_Active==true).ToList();
+            return Json(new {data= project, success = true, msg = "Saved" }, JsonRequestBehavior.AllowGet);
+
+        }
+        public JsonResult DeletePRojectRoadMAp(int id)
+        {
+            var Project_roadMap = new Project_roadMap() { ID = id };
+            db.Project_roadMap.Attach(Project_roadMap);
+            //Project_roadMap.Is_Block = true;
+            Project_roadMap.is_Active = false;
+            db.SaveChanges();
+            return Json(new {success = true, msg = "Saved" }, JsonRequestBehavior.AllowGet);
+
+
+        }
+
 
 
         public void NotificationAdd(notification notif)
@@ -522,6 +558,12 @@ namespace FYPAUtOMATION.Controllers
             db = new FYPEntities();
             db.notifications.Add(notif);
             db.SaveChanges();
+        }
+
+
+        public ActionResult Szabgit()
+        {
+            return View();
         }
     }
 }

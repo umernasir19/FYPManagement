@@ -59,6 +59,20 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
+
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                            
+                                    <th>Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+
                     </div>
                     <!-- /.card -->
                     <!-- /.card -->
@@ -74,6 +88,44 @@
 <script src="~/Dist/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function () {
+
+            $.ajax({
+                url: "/Admin/GetProjectRoadmap",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Title' },
+                        
+
+                        {
+                            "data": "ID",
+                            "render": function (Id, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-info" onclick="Download(' + Id + ')"><i class="fa fa-eye">Download</i><a href="#" class="btn btn-info" onclick="Delete(' + Id + ')"><i class="fa fa-eye">Delete</i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+
+                    ]
+                });
+
+            }
 
 
             $('#btnsubmit').click(function (e) {
@@ -103,14 +155,24 @@
             });
 
 
-
-
+         
 
 
 
 
         });
 
+        function Download(ID) {
+        
+            window.location.href = "/student/DownloadProjectRoadMap?id=" + ID;
+        }
+
+        function Delete(ID) {
+            $.post("/Admin/DeletePRojectRoadMAp", { id: ID }, function (data) {
+                alert(data.msg);
+                window.location.reload;
+            });
+        }
 
 
 </script>

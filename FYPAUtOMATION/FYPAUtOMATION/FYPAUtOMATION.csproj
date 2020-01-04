@@ -312,6 +312,9 @@
     <Compile Include="Student_Request.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Szabgit.cs">
+      <DependentUpon>FYPMODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblFile.cs">
       <DependentUpon>FYPMODEL.tt</DependentUpon>
     </Compile>
@@ -372,6 +375,10 @@
     <Content Include="Views\Student\ProjectMap.cshtml" />
     <Content Include="Views\Student\DeliverableDetails.cshtml" />
     <Content Include="Views\Resources\ViewResources.cshtml" />
+    <Content Include="Views\Resources\Szabgit.cshtml" />
+    <Content Include="Views\Advisor\AdvisorSlots.cshtml" />
+    <Content Include="Views\Admin\Szabgit.cshtml" />
+    <Content Include="Views\Student\ViewGrades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

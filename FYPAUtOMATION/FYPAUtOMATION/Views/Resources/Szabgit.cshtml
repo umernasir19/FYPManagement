@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Szabgit";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Resourcess</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Resources</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Resources</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <p>
+                                        All groups are required to update their projects on github on weekly or fortnightly basis. [ Mandatory ]
+                                        Sign up for your github ID  from here or through local network from here.
+                                    </p>
+                                    @* <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />*@
+                                </div>
+                            </div>
+                        </div>
+                        @{
+                            foreach (var resources in ViewBag.Resources)
+                            {
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Resource Name</label>
+                                            <p>
+                                                <b>
+                                                    @resources.ResourceName
+                                                </b>
+                                            </p>
+                                            @* <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label></label>
+                                            <a href="@resources.Link">@resources.Link</a>
+                                            @* <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Slots</label>
+                                            <ul>
+                                                <li>@resources.Slots</li>
+                                            </ul>
+                                            @* <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Contact</label>
+                                            <ul>
+                                                <li>@resources.Contact</li>
+                                            </ul>
+                                            @* <input type="button" id="btnsubmit" value="Add Grades" class="btn btn-primary" />*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                            }
+                        }
+
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+

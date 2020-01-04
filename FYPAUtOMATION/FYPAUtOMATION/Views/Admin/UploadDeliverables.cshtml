@@ -135,7 +135,7 @@
 </div>
 
 <script src="~/Dist/lib/jquery/jquery.min.js"></script>
-
+<script src="~/Dist/js/moment.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function () {
 
@@ -161,7 +161,23 @@
                         { data: 'Document' },
                         { data: 'FYP1' },
                         { data: 'FYP2' },
-                        { data: 'Due_Date' },
+
+                        {
+                            "data": "Due_Date",
+                            "render": function (data, type, row) {
+                                //return ConvertToDate(data);
+                                return moment(data).format('DD/MM/YYYY');
+                               // return moment(row).format('DD/MM/YYYY hh:mm:ss');
+                                //return '<a href="#" class="btn btn-info" onclick="UpdateGroupDescription(' + Id + ')"><i class="fa fa-eye">Update And View Description</i><a href="#" class="btn btn-info" onclick="ViewGroupFiles(' + Id + ')"><i class="fa fa-eye">View Files</i>'
+                            }
+                            },
+
+
+                    //    title: "Date",// name 
+                    //render: function (data, type, row) {//data
+                    //    return moment(row.updatedDate).format('DD/MM/YYYY hh:mm:ss');
+                    //}
+                        //{ data: 'Due_Date' },
                         { data: 'Time_Due' },
                         { data: 'SubmitTo' },
                         
@@ -203,14 +219,19 @@
             });
 
 
+           
 
 
-
-
-
+            function ConvertToDate(data) {
+                function pad(s) { return (s < 10) ? '0' + s : s; }
+                var d = new Date(data)
+                return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/')
+                console.log(data)
+                return data;//Converted date
+            }
 
         });
-
+        
 
 
 </script>

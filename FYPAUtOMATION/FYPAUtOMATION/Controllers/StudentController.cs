@@ -260,6 +260,24 @@ namespace FYPAUtOMATION.Controllers
             return View();
         }
 
+        public ActionResult ViewGrades()
+        {
+            int stdid = Convert.ToInt32(Session["StudentId"]);
+            var groupid = db.Student_Group.Where(p => p.Student_1_ID == stdid || p.Student_2_ID == stdid).FirstOrDefault();
+            Grade grades = db.Grades.Where(p => p.GroupId == groupid.Group_Id).FirstOrDefault();
+            if (grades == null)
+            {
+                grades = new Grade();
+                grades.GroupId = grades.GroupId;
+            }
+            else
+            {
+
+            }
+
+            return View(grades);
+            return View();
+        }
 
         public ActionResult ProjectMap()
         {

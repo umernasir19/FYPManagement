@@ -99,6 +99,7 @@
           <Property Name="Document_Path" Type="text" />
           <Property Name="is_Active" Type="bit" />
           <Property Name="DateCreated" Type="date" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Projects">
           <Key>
@@ -191,6 +192,16 @@
           <Property Name="IsPending" Type="bit" />
           <Property Name="DateCreated" Type="datetime" />
         </EntityType>
+        <EntityType Name="Szabgit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Link" Type="text" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
         <EntityType Name="tblFiles">
           <Key>
             <PropertyRef Name="Id" />
@@ -253,6 +264,7 @@
           <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student_Request" EntityType="Self.Student_Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Szabgit" EntityType="Self.Szabgit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblFiles" EntityType="Self.tblFiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -415,6 +427,8 @@
           <EntitySet Name="Project_roadMap" EntityType="FYPModel.Project_roadMap" />
           <EntitySet Name="Resources" EntityType="FYPModel.Resource" />
           <EntitySet Name="notifications" EntityType="FYPModel.notification" />
+          <FunctionImport Name="sp_SignUp_Requests1" ReturnType="Collection(FYPModel.sp_SignUp_Requests_Result)" />
+          <EntitySet Name="Szabgits" EntityType="FYPModel.Szabgit" />
         </EntityContainer>
         <ComplexType Name="sp_SignUp_Requests_Result">
           <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -498,6 +512,7 @@
           <Property Name="Document_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="is_Active" Type="Boolean" />
           <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Resource">
           <Key>
@@ -522,6 +537,16 @@
           <Property Name="Isread" Type="Boolean" />
           <Property Name="DateCreated" Type="DateTime" Precision="0" />
           <Property Name="is_active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Szabgit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -757,6 +782,7 @@
           <EntitySetMapping Name="Project_roadMap">
             <EntityTypeMapping TypeName="FYPModel.Project_roadMap">
               <MappingFragment StoreEntitySet="Project_roadMap">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="is_Active" ColumnName="is_Active" />
                 <ScalarProperty Name="Document_Path" ColumnName="Document_Path" />
@@ -787,6 +813,31 @@
                 <ScalarProperty Name="N_To" ColumnName="N_To" />
                 <ScalarProperty Name="Notification_Msg" ColumnName="Notification_Msg" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_SignUp_Requests1" FunctionName="FYPModel.Store.sp_SignUp_Requests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.sp_SignUp_Requests_Result">
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Is_Advisor" ColumnName="Is_Advisor" />
+                <ScalarProperty Name="Is_Student" ColumnName="Is_Student" />
+                <ScalarProperty Name="Student_Registration_No" ColumnName="Student_Registration_No" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Szabgits">
+            <EntityTypeMapping TypeName="FYPModel.Szabgit">
+              <MappingFragment StoreEntitySet="Szabgit">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

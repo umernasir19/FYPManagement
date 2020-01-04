@@ -154,6 +154,8 @@
     <EntitySet Name="Project_roadMap" EntityType="FYPModel.Project_roadMap" />
     <EntitySet Name="Resources" EntityType="FYPModel.Resource" />
     <EntitySet Name="notifications" EntityType="FYPModel.notification" />
+    <FunctionImport Name="sp_SignUp_Requests1" ReturnType="Collection(FYPModel.sp_SignUp_Requests_Result)" />
+    <EntitySet Name="Szabgits" EntityType="FYPModel.Szabgit" />
   </EntityContainer>
   <ComplexType Name="sp_SignUp_Requests_Result">
     <Property Type="String" Name="User_Name" Nullable="true" MaxLength="50" />
@@ -237,6 +239,7 @@
     <Property Name="Document_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="is_Active" Type="Boolean" />
     <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Resource">
     <Key>
@@ -261,5 +264,15 @@
     <Property Name="Isread" Type="Boolean" />
     <Property Name="DateCreated" Type="DateTime" Precision="0" />
     <Property Name="is_active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Szabgit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

@@ -16,5 +16,6 @@ namespace FYPAUtOMATION.Models
 
         public string Student1_Name { get; set; }
         public string Student2_Name { get; set; }
+        public string AdvisorName { get; set; }
     }
 }

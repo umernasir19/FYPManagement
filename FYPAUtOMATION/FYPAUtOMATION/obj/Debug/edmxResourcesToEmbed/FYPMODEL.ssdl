@@ -94,6 +94,7 @@
     <Property Name="Document_Path" Type="text" />
     <Property Name="is_Active" Type="bit" />
     <Property Name="DateCreated" Type="date" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Projects">
     <Key>
@@ -186,6 +187,16 @@
     <Property Name="IsPending" Type="bit" />
     <Property Name="DateCreated" Type="datetime" />
   </EntityType>
+  <EntityType Name="Szabgit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Link" Type="text" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
   <EntityType Name="tblFiles">
     <Key>
       <PropertyRef Name="Id" />
@@ -248,6 +259,7 @@
     <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Request" EntityType="Self.Student_Request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szabgit" EntityType="Self.Szabgit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblFiles" EntityType="Self.tblFiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_IN_Roles" EntityType="Self.User_IN_Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />

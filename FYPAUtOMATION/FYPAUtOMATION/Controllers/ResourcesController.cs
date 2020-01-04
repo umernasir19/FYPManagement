@@ -17,5 +17,11 @@ namespace FYPAUtOMATION.Controllers
 
             return View();
         }
+
+
+        public ActionResult Szabgit()
+        {
+            return View();
+        }
     }
 }

@@ -140,6 +140,16 @@ namespace FYPAUtOMATION.Controllers
             return View();
         }
 
+
+        public ActionResult AdvisorSlots()
+        {
+            int advisorid = Convert.ToInt32(Session["AdvisorId"]);
+            ViewBag.Slots = db.Advisors.Where(p => p.Id == advisorid).FirstOrDefault();
+
+            return View();
+        }
+
+
         [HttpGet]
         public JsonResult GetGroupsList()
         {

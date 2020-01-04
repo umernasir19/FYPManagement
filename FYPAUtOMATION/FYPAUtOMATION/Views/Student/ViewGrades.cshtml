@@ -1,0 +1,71 @@
+﻿@model FYPAUtOMATION.Grade
+@{
+    ViewBag.Title = "ViewGrades";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1> Grades</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Grades</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Grades</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form id="annoucnementform" method="post">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Evalution Marks</label>
+                                        @Html.EditorFor(model => model.FirstHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Mid Marks</label>
+                                        @Html.EditorFor(model => model.SecondHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Finals</label>
+                                        @Html.EditorFor(model => model.ThirdHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                    </div>
+                                </div>
+                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.GroupId)
+                            </div>
+                            
+                        </form>
+
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+

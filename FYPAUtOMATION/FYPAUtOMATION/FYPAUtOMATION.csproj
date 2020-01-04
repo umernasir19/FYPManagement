@@ -380,6 +380,7 @@
     <Content Include="Views\Admin\Szabgit.cshtml" />
     <Content Include="Views\Student\ViewGrades.cshtml" />
     <Content Include="Views\Student\ReadNotifications.cshtml" />
+    <Content Include="Views\Resources\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

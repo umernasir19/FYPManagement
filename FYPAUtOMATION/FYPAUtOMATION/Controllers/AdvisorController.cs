@@ -69,12 +69,8 @@ namespace FYPAUtOMATION.Controllers
                 db.Advisors.Attach(advisorslotupdate);
                 advisorslotupdate.Advisors_Slot = slots - 1;
                 db.SaveChanges();
-                db = new FYPEntities();
-                var groupid=db.Student_Advisor_Request.Where(p=>p.Id==id).FirstOrDefault();
-                notification notif = new notification();
-                notif.Notification_Msg = "Your Request Accepted By Advisor";
-                notif.Group_Id = groupid.Group_Id;
-                NotificationAdd(notif);
+               
+                NotificationAdd(id);
                 return Json(new { msg = "Successfull", success = true }, JsonRequestBehavior.AllowGet);
             }
             else
@@ -184,15 +180,36 @@ namespace FYPAUtOMATION.Controllers
             }
         }
 
-        public void NotificationAdd(notification notif)
+        public static void NotificationAdd(int id)
         {
-            notif.Isread = false;
+            FYPEntities db = new FYPEntities();
+            var grouplist = db.Student_Group.Where(p => p.Group_Id == id).FirstOrDefault();
 
-            notif.DateCreated = DateTime.Now;
-            notif.is_active = true;
-            db = new FYPEntities();
-            db.notifications.Add(notif);
-            db.SaveChanges();
+            for (int i = 0; i < 2; i++)
+            {
+                notification notif = new notification();
+                if (i == 0)
+                {
+
+
+                    notif.N_To = grouplist.Student_1_ID;
+                }
+                if (i == 1)
+                {
+                    notif.N_To = grouplist.Student_2_ID;
+                }
+                notif.Notification_Msg = "Your Request is Accepted By Advisor";
+                notif.Isread = false;
+
+                notif.DateCreated = DateTime.Now;
+                notif.is_active = true;
+                FYPEntities dbs = new FYPEntities();
+                dbs.notifications.Add(notif);
+                dbs.SaveChanges();
+            }
+
+
+
         }
     }
 }

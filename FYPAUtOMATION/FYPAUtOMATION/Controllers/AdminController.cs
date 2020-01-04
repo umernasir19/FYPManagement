@@ -52,7 +52,7 @@ namespace FYPAUtOMATION.Controllers
                 notification notifc = new notification();
                 notifc.Notification_Msg = "Your Sign Up Request Is Accepted";
                 notifc.N_To = id;
-                 NotificationAdd(notifc);
+               // NotificationAdd(id);
                
             }
             catch (DbEntityValidationException e)
@@ -292,7 +292,7 @@ namespace FYPAUtOMATION.Controllers
             notification not = new notification();
             not.Notification_Msg = "Your Group name is Changed to " + grp.Group_Name + " By Admin";
             not.Group_Id = grp.group_id;
-            NotificationAdd(not);
+            NotificationAdd(grp.group_id);
             return Json(new { success = true, msg = "Updated" }, JsonRequestBehavior.AllowGet);
         }
 
@@ -549,15 +549,36 @@ namespace FYPAUtOMATION.Controllers
 
 
 
-        public void NotificationAdd(notification notif)
+        public static void NotificationAdd(int id)
         {
-            notif.Isread = false;
-            
-            notif.DateCreated = DateTime.Now;
-            notif.is_active = true;
-            db = new FYPEntities();
-            db.notifications.Add(notif);
-            db.SaveChanges();
+            FYPEntities db = new FYPEntities();
+            var grouplist=db.Student_Group.Where(p => p.Group_Id == id).FirstOrDefault();
+
+            for (int i = 0; i < 2; i++)
+            {
+                notification notif = new notification();
+                if (i == 0)
+                {
+
+
+                    notif.N_To = grouplist.Student_1_ID;
+                }
+                if (i == 1)
+                {
+                    notif.N_To = grouplist.Student_2_ID;
+                }
+                notif.Notification_Msg = "Your Group Name IS Changed By Admin Please Contact Advisor or Admin";
+                notif.Isread = false;
+
+                notif.DateCreated = DateTime.Now;
+                notif.is_active = true;
+                FYPEntities dbs = new FYPEntities();
+                dbs.notifications.Add(notif);
+                dbs.SaveChanges();
+            }
+
+
+           
         }
 
 

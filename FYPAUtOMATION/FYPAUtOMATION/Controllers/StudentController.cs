@@ -273,6 +273,9 @@ namespace FYPAUtOMATION.Controllers
             {
                 grades = new Grade();
                 grades.GroupId = grades.GroupId;
+                grades.FirstHalf_marks = "0";
+                grades.SecondHalf_marks = "0";
+                grades.ThirdHalf_marks = "0";
             }
             else
             {

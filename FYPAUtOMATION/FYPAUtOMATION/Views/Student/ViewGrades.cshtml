@@ -36,19 +36,19 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Evalution Marks</label>
-                                        @Html.EditorFor(model => model.FirstHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                        @Html.EditorFor(model => model.FirstHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname",@readonly=true } })
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Mid Marks</label>
-                                        @Html.EditorFor(model => model.SecondHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                        @Html.EditorFor(model => model.SecondHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname", @readonly = true } })
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label>Finals</label>
-                                        @Html.EditorFor(model => model.ThirdHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname" } })
+                                        @Html.EditorFor(model => model.ThirdHalf_marks, new { htmlAttributes = new { @placeholder = "Marks", @class = "form-control", @id = "txtboxempname", @readonly = true } })
                                     </div>
                                 </div>
                                 @Html.HiddenFor(model => model.Id)

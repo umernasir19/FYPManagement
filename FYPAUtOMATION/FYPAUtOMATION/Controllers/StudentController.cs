@@ -279,11 +279,23 @@ namespace FYPAUtOMATION.Controllers
             }
             else
             {
+                if (grades.FirstHalf_marks == null)
+                {
+                    grades.FirstHalf_marks = "0";
+                }
+                if (grades.SecondHalf_marks == null)
+                {
+                    grades.SecondHalf_marks = "0";
+                }
+                if (grades.ThirdHalf_marks == null)
+                {
+                    grades.ThirdHalf_marks = "0";
+                }
 
             }
 
             return View(grades);
-            return View();
+           // return View();
         }
 
         public ActionResult ProjectMap()

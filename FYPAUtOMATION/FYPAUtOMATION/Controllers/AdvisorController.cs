@@ -47,7 +47,7 @@ namespace FYPAUtOMATION.Controllers
             int advisorid = Convert.ToInt32(Session["AdvisorId"]);
             var adv=db.Advisors.Where(p => p.Id == advisorid).FirstOrDefault();
             int slots =Convert.ToInt32(adv.Advisors_Slot);
-            if (slots > 0)
+            if (slots > 0 && CheckStudentAdvisorGroup(id)==false)
             {
                 var stdadvreq = new Student_Advisor_Request()
                 {
@@ -75,10 +75,24 @@ namespace FYPAUtOMATION.Controllers
             }
             else
             {
-                return Json(new { msg = "Unable To Accept 0 Slots Available", success = true }, JsonRequestBehavior.AllowGet);
+                return Json(new { msg = "Unable To Accept 0 Slots Available or Student Already in Group", success = true }, JsonRequestBehavior.AllowGet);
             }
            
 
+        }
+        
+        public bool CheckStudentAdvisorGroup(int groupid)
+        {
+            var group = db.Student_Advisor_Request.Where(p => p.Group_Id == groupid && p.Is_Accepted == true).FirstOrDefault();
+            if (group != null)
+            {
+                //Advisor alrady accepted
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public ActionResult Deliverables()

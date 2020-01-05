@@ -156,6 +156,16 @@ namespace FYPAUtOMATION.Controllers
             return Json(new { success = true, msg = "Saved" }, JsonRequestBehavior.AllowGet);
 
         }
+
+        public EmptyResult RemoveTemplete(int id)
+        {
+            var user = new Document_By_Admin() { ID = id };
+            db.Document_By_Admin.Attach(user);
+             //= true;
+            user.Is_Active = false;
+            db.SaveChanges();
+            return null;
+        }
         public void UploadProfilePicture(AdminDocument admndocs)
         {
             var file = admndocs.Document;
@@ -368,10 +378,24 @@ namespace FYPAUtOMATION.Controllers
             {
                 grades = new Grade();
                 grades.GroupId = id;
+                grades.FirstHalf_marks = "0";
+                grades.SecondHalf_marks = "0";
+                grades.ThirdHalf_marks = "0";
             }
             else
             {
-
+                if (grades.FirstHalf_marks == null)
+                {
+                    grades.FirstHalf_marks = "0";
+                }
+                if (grades.SecondHalf_marks == null)
+                {
+                    grades.SecondHalf_marks = "0";
+                }
+                if (grades.ThirdHalf_marks == null)
+                {
+                    grades.ThirdHalf_marks = "0";
+                }
             }
 
             return View(grades);
@@ -442,6 +466,12 @@ namespace FYPAUtOMATION.Controllers
         {
             return View();
         }
+
+        public ActionResult DeleverableDetails()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public JsonResult UploadNewResources(Resource res)

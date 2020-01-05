@@ -57,6 +57,17 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
                         </div>
                         <!-- /.card -->
                         <!-- /.card -->
@@ -72,6 +83,41 @@
 <script src="~/Dist/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function () {
+            $.ajax({
+                url: "/Announcement/GetDocuments",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+            function bindCustomersInDataTable(data) {
+                console.log(data.data);
+                var status = "Blocked".toString();
+                var table = $('#example2').DataTable({
+                    data: data.data,
+
+
+                    columns: [
+
+                        { data: 'Document_Name' },
+                        {
+                            "data": "ID",
+                            "render": function (ID, type, full, meta) {
+
+                                return '<a href="#" class="btn btn-primary" onclick="Download(' + ID + ')"><i class="">Download Document</i> <a href="#" class="btn btn-primary" onclick="RemoveTemplete(' + ID + ')"><i class="">Remove Document</i>'
+
+                            },
+                            "orderable": true,
+                            "searchable": true,
+
+
+                        }
+
+                    ]
+                });
+
+            }
 
 
             $('#btnsubmit').click(function (e) {
@@ -108,7 +154,33 @@
 
 
         });
+        function Download(ID) {
 
+            var url = "/Announcement/Download?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
 
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+        function RemoveTemplete(ID) {
+
+            var url = "/Admin/RemoveTemplete?Id=" + ID;
+            window.location.href = url;
+            //window.location.reload;
+
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
 
 </script>

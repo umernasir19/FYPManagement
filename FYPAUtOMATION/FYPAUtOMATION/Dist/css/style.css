@@ -695,8 +695,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 
 #about {
-  background: url("../img/about-bg.jpg") center top no-repeat fixed;
-  background-size: cover;
+  /* background: url("../img/about-bg.jpg") center top no-repeat fixed; */
+  /* background-size: cover; */
   padding: 60px 0 40px 0;
   position: relative;
 }
@@ -1409,6 +1409,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #2a54a5;
   color: #eee;
   font-size: 14px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
 }
 
 #footer .footer-top {
